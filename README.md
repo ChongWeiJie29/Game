@@ -12,3 +12,9 @@ https://youtu.be/0nzJXJAhlsk
 Everytime you're gonna work on something, make sure to pull the newest version of the project using the Fetch Origin button on the Github Desktop client. Then click the Pull Origin button. After you're done making the changes then commit the changes then click the Push to Origin button which should be in the same location as the Fetch Origin button.
 
 ![image](https://user-images.githubusercontent.com/77789163/164957943-f88fb404-6815-40cc-bae2-715757a125de.png)
+
+### Things to download:
+1. Git
+2. GitHub Desktop
+3. Unity Hub
+4. Unity version 2021.3.1f1
