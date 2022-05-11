@@ -7,10 +7,13 @@ public class MusicSlider : MonoBehaviour
 {
     [SerializeField]
     private Slider musicSlider;
+    private float musicSliderValue;
     // Start is called before the first frame update
     void Start()
     {
         musicSlider.onValueChanged.AddListener(musicSliderFunction);
+        musicSliderValue = Data.LoadGameFunction().musicSliderValue;
+        musicSlider.value = musicSliderValue;
     }
     void musicSliderFunction(float musicValue)
     {
