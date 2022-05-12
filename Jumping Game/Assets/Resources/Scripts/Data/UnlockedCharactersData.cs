@@ -1,58 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 [System.Serializable]
-public class Data
+public class UnlockedCharactersData : MonoBehaviour
 {
-    public float soundSliderValue = 0;
-    public float musicSliderValue = 0;
-    public static string filePath;
-    public Data(float soundSliderValue, float musicSliderValue)
+    private int unlockedCharactersNum;
+    private static string filePath = Application.persistentDataPath + "/saveUnlockedCharactersNum.txt";
+
+    public UnlockedCharactersData(int unlockedCharactersNum)
     {
-        this.soundSliderValue = soundSliderValue;
-        this.musicSliderValue = musicSliderValue;
+        this.unlockedCharactersNum = unlockedCharactersNum;
     }
 
-    public static void saveSettingsFunction(Data saveData)
+    public static void saveUnlockedCharactersNum(UnlockedCharactersData unlockedCharactersNum)
     {
-        filePath = Application.persistentDataPath + "/save.txt";
         if (!File.Exists(filePath))
         {
             FileStream dataStream = new FileStream(filePath, FileMode.Create);
             BinaryFormatter converter = new BinaryFormatter();
-            converter.Serialize(dataStream, saveData);
+            converter.Serialize(dataStream, unlockedCharactersNum);
             dataStream.Close();
         } 
         else
         {
             FileStream dataStream = new FileStream(filePath, FileMode.Open);
             BinaryFormatter converter = new BinaryFormatter();
-            converter.Serialize(dataStream, saveData);
+            converter.Serialize(dataStream, unlockedCharactersNum);
             dataStream.Close();
         }
     }
 
-    public static Data LoadGameFunction()
+    public static int loadUnlockedCharactersNum()
     {
-        filePath = Application.persistentDataPath + "/save.txt";
-        if(File.Exists(filePath))
+        if (File.Exists(filePath))
         {
             FileStream dataStream = new FileStream(filePath, FileMode.Open);
-
             BinaryFormatter converter = new BinaryFormatter();
-            Data saveData = (Data)converter.Deserialize(dataStream);
-
+            int unlockedCharactersNum = (int)converter.Deserialize(dataStream);
             dataStream.Close();
-            return saveData; 
-        }
+            return unlockedCharactersNum;
+        } 
         else
         {
-            Data saveData = new Data(0, 0);
-            return saveData;
+            int unlockedCharactersNum = 1;
+            return unlockedCharactersNum;
         }
     }
+
 }

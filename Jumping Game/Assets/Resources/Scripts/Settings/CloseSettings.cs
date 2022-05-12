@@ -20,7 +20,7 @@ public class CloseSettings : MonoBehaviour
     }
     void closeSettingsFunction()
     {
-        Data.saveSettingsFunction(new Data(soundSlider.value, musicSlider.value));
+        SoundData.saveSoundSettingsFunction(new SoundData(soundSlider.value, musicSlider.value));
         Debug.Log("Close settings page");
         // function to close settings
     }

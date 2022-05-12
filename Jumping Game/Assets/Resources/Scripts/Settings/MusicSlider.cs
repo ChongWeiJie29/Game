@@ -12,7 +12,7 @@ public class MusicSlider : MonoBehaviour
     void Start()
     {
         musicSlider.onValueChanged.AddListener(musicSliderFunction);
-        musicSliderValue = Data.LoadGameFunction().musicSliderValue;
+        musicSliderValue = SoundData.LoadSoundFunction().musicSliderValue;
         musicSlider.value = musicSliderValue;
     }
     void musicSliderFunction(float musicValue)

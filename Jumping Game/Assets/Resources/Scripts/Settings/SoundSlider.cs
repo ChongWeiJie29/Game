@@ -15,7 +15,7 @@ public class SoundSlider : MonoBehaviour
     void Start()
     {
         soundSlider.onValueChanged.AddListener(soundSliderFunction);
-        soundSliderValue = Data.LoadGameFunction().soundSliderValue;
+        soundSliderValue = SoundData.LoadSoundFunction().soundSliderValue;
         soundSlider.value = soundSliderValue;
         
     }
