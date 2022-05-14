@@ -38,12 +38,12 @@ public class LoadLevels : MonoBehaviour
                 newButton.name = "Level " + i;
                 newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Level " + i);
                 newButton.GetComponent<Button>().interactable = true;
-                Debug.Log("true" + i);
+                Debug.Log(i + " Unlocked");
             }else{
                 newButton.name = "Level " + i + " Locked";
                 newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Level " + i + "\nLocked");
                 newButton.GetComponent<Button>().interactable = false;
-                Debug.Log("false" + i);
+                Debug.Log(i + " Locked");
             }
         }
     }
