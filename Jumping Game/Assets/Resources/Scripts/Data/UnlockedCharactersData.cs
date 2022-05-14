@@ -45,7 +45,7 @@ public class UnlockedCharactersData : MonoBehaviour
         } 
         else
         {
-            int unlockedCharactersNum = 1;
+            int unlockedCharactersNum = 3;
             return unlockedCharactersNum;
         }
     }
