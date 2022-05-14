@@ -400,6 +400,7 @@ MonoBehaviour:
   levelHolder: {fileID: 313428671}
   levelButton: {fileID: 1761453244410867857, guid: 9405d6130e6f4304ba73a91221b35342, type: 3}
   levelQty: 20
+  levelUnlocked: 10
 --- !u!1 &861269484
 GameObject:
   m_ObjectHideFlags: 0
