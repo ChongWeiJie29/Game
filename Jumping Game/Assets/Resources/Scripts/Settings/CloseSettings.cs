@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public class CloseSettings : MonoBehaviour
 {
@@ -21,7 +20,6 @@ public class CloseSettings : MonoBehaviour
     void closeSettingsFunction()
     {
         SoundData.saveSoundSettingsFunction(new SoundData(soundSlider.value, musicSlider.value));
-        Debug.Log("Close settings page");
-        // function to close settings
+        SceneManager.LoadScene("MainMenu");
     }
 }

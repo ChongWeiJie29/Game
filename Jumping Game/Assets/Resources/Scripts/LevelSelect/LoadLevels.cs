@@ -8,10 +8,11 @@ public class LoadLevels : MonoBehaviour
 {
     public GameObject levelHolder;
     public GameObject levelButton;
-    public int levelQty = 20;
-    public int levelUnlocked = 1;
+    private int levelQty = 10;
+    private int levelUnlocked;
 
     private void Start(){
+        levelUnlocked = HighestLevelData.getHighestLevel();
         for(int i=1; i<=levelQty; i++){
             GameObject newButton = Instantiate(levelButton, levelHolder.transform) as GameObject;
             if(i <= levelUnlocked){

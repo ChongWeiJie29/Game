@@ -20,7 +20,7 @@ public class HighestLevelData
         }
         else 
         {
-            HighestLevelData.highestLevel = 0;
+            HighestLevelData.highestLevel = 1;
             return highestLevel;
         }
     }

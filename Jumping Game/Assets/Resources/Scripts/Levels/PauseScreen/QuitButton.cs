@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuitButton : MonoBehaviour
 {
@@ -21,8 +22,8 @@ public class QuitButton : MonoBehaviour
     // Update is called once per frame
     void quitButtonFunction()
     {
-        Time.timeScale = 0;
-        Debug.Log("Quit to main menu");
+        Time.timeScale = 1;
         SoundData.saveSoundSettingsFunction(new SoundData(soundSlider.value, musicSlider.value));
+        SceneManager.LoadScene("MainMenu");
     }
 }
