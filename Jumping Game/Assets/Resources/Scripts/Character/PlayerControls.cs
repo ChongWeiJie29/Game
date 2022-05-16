@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D characterRB;
-    [SerializeField]
-    private Joystick joystick;
+    private FloatingJoystick joystick;
     private bool jumping = false;
     private BoxCollider2D characterCollider;
     private BoxCollider2D groundCollider;
@@ -18,7 +17,7 @@ public class PlayerControls : MonoBehaviour
         characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         characterCollider = GetComponent<BoxCollider2D>();
         groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
+        joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
     }
 
     // Update is called once per frame
@@ -35,10 +34,10 @@ public class PlayerControls : MonoBehaviour
         }
         if (joystick.Vertical > 0.5f && !jumping)
         {
-            characterRB.velocity =new Vector2(characterRB.velocity.x, joystick.Vertical*9);
+            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*9);
             jumping = true;
         }
-        checkOnGround();
+    checkOnGround();
     }
     void checkOnGround()
     {
