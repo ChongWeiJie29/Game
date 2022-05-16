@@ -16,7 +16,7 @@ public class PlayButton : MonoBehaviour
     void play()
     {
             Debug.Log("play");
-            SceneManager.LoadScene("Level1");
+            int highestLevel = HighestLevelData.getHighestLevel();
         // function to stay playing
     }
 }
