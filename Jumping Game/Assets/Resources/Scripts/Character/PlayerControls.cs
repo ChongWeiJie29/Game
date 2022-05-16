@@ -37,11 +37,7 @@ public class PlayerControls : MonoBehaviour
             characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*9);
             jumping = true;
         }
-    checkOnGround();
-    }
-    void checkOnGround()
-    {
-        if (characterCollider.IsTouching(groundCollider))
+    if (characterCollider.IsTouching(groundCollider))
         {
             jumping = false;
         }
