@@ -15,7 +15,6 @@ public class SettingsButton : MonoBehaviour
 
     void settings()
     {
-            Debug.Log("Settings");
             SceneManager.LoadScene("Settings");
         // function to go to settings page
     }

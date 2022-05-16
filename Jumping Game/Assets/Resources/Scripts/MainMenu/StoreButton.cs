@@ -14,7 +14,6 @@ public class StoreButton : MonoBehaviour
 
     void store()
     {
-            Debug.Log("Store");
             SceneManager.LoadScene("Store");
         // function to go to Store page
     }
