@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SelectLevelButton : MonoBehaviour
+public class LevelSelectBackButton : MonoBehaviour
 {
     [SerializeField]
-    private Button selectLevelButton;
+    private Button backButton;
     void Start()
     {
-        selectLevelButton.onClick.AddListener(selectLevel);
+        backButton.onClick.AddListener(backToMenu);
     }
 
-    void selectLevel()
+    void backToMenu()
     {
-            SceneManager.LoadScene("Level Select (Vertical Snap Full)");
+            SceneManager.LoadScene("MainMenu");
         // function to go to select level page
     }
 }

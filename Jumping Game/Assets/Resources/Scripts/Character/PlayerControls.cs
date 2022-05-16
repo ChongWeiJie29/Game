@@ -15,6 +15,7 @@ public class PlayerControls : MonoBehaviour
     {
         characterRB = GetComponent<Rigidbody2D>();
         characterRB.gravityScale = 2;
+        characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         characterCollider = GetComponent<BoxCollider2D>();
         groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
     }
@@ -22,41 +23,14 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jumpAction();
         joystickControls();
         cameraBorders();
-    }
-
-    void jumpAction()
-    {
-        if(Input.touchCount == 1 && !jumping)
-        {
-            if (Input.GetTouch(0).position.x > 560)
-            {
-                characterRB.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
-                jumping = true;
-            }
-        } 
-        else if (Input.touchCount == 2 && !jumping)
-        {
-            if (Input.GetTouch(0).position.x > 560 || Input.GetTouch(1).position.x > 560)
-            {
-                characterRB.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
-                jumping = true;
-            }
-        }
-        checkOnGround();
     }
 
     void checkOnGround()
     {
         if (characterCollider.IsTouching(groundCollider))
         {
-            if(Input.touchCount != 0)
-            {
-                jumping = true;
-                return;
-            }
             jumping = false;
         }
     }
@@ -78,8 +52,15 @@ public class PlayerControls : MonoBehaviour
         }
         if (isHolding)
         {
-            float direction = pointB.x - pointA.x;
-            characterRB.velocity = new Vector2(direction*3, characterRB.velocity.y);
+            Vector2 offset = pointB - pointA;
+            Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
+            characterRB.velocity = new Vector2(direction.x*700*Time.deltaTime, characterRB.velocity.y);
+            if(direction.y >= 0.5 && !jumping)
+            {
+                characterRB.AddForce(Vector2.up * 200 *Time.deltaTime, ForceMode2D.Impulse);
+                jumping = true;
+            }
+            checkOnGround();
         }
     }
 
