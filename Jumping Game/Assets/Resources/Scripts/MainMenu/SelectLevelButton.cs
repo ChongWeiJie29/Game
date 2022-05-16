@@ -16,7 +16,7 @@ public class SelectLevelButton : MonoBehaviour
     void selectLevel()
     {
             Debug.Log("selectLevel");
-            SceneManager.LoadScene("Level Select (Vertical Snap Platform)");
+            SceneManager.LoadScene("Level Select (Vertical Snap Full)");
         // function to go to select level page
     }
 }
