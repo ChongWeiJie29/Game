@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quitButton: {fileID: 45242172}
+  soundSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1 &92538822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueButton: {fileID: 728978012}
+  soundSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1 &856232378
 GameObject:
   m_ObjectHideFlags: 0

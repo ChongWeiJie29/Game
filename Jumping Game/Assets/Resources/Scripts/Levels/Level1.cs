@@ -7,8 +7,6 @@ public class Level1 : MonoBehaviour
 {
     [SerializeField]
     private GameObject selectedCharacter;
-    [SerializeField]
-    private GameObject pauseScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +16,6 @@ public class Level1 : MonoBehaviour
         selectedCharacter.AddComponent<PlayerControls>();
         selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacter.AddComponent<BoxCollider2D>();
-        pauseScreen.SetActive(false);
     }
 
     // Update is called once per frame
