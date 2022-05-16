@@ -37,13 +37,17 @@ public class LoadLevels : MonoBehaviour
         int interval = Mathf.FloorToInt(levelQty / 5);
         if(1<=i && i<=interval){
             newButton.GetComponent<Image>().sprite = demonLair;
-        }if(interval+1<=i && i<=(interval*2)){
+        }
+        if(interval+1<=i && i<=(interval*2)){
             newButton.GetComponent<Image>().sprite = underWater;
-        }if(((interval*2)+1)<=i && i<=(interval*3)){
+        }
+        if(((interval*2)+1)<=i && i<=(interval*3)){
             newButton.GetComponent<Image>().sprite = scienceLab;
-        }if(((interval*3)+1)<=i && i<=(interval*5)){
+        }
+        if(((interval*3)+1)<=i && i<=(interval*5)){
             newButton.GetComponent<Image>().sprite = constructionSite;
-        }if(((interval*4)+1)<=i && i<=levelQty){
+        }
+        if(((interval*4)+1)<=i && i<=levelQty){
             newButton.GetComponent<Image>().sprite = futuristicCity;
         }
     }
