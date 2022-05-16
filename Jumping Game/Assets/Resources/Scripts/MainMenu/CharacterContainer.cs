@@ -17,7 +17,7 @@ public class CharacterContainer : MonoBehaviour
     private GameObject character4;
     [SerializeField]
     private GameObject character5;
-    public static List<GameObject> unlockedCharacters = new List<GameObject>();
+    public static List<GameObject> unlockedCharacters;
     private GameObject character;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class CharacterContainer : MonoBehaviour
 
     public void listOfCharacters()
     {
+        unlockedCharacters = new List<GameObject>();
         for (int i = 1; i <= 5; i++)
         {
             switch (i)
