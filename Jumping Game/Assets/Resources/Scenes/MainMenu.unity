@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955cad288accf6a4d9082c66d7e9e67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character1: {fileID: 4807579249173893024, guid: 3ae4017506353a747846ad42a9db0195, type: 3}
+  character1: {fileID: 590722485899366304, guid: ff09b9124bf7c274cb528ae9ce2d129f, type: 3}
   character2: {fileID: 4807579249173893024, guid: 7ffc46f5a798bab48a51807641baa25c, type: 3}
   character3: {fileID: 4807579249173893024, guid: 3a4f4eba867f76b45813889a817ee445, type: 3}
   character4: {fileID: 4807579249173893024, guid: 6bfb21117c57d4c43b5e03996ff27b3f, type: 3}

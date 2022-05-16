@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CharacterContainer : MonoBehaviour
 {
-    private RectTransform characterContainer;
-    private int unlockedCharactersNum;
+    public static RectTransform characterContainer;
     private float scrollValue;
-    private int selectedCharacter = 0;
+    public static int selectedCharacter = 0;
     [SerializeField]
     private GameObject character1;
     [SerializeField]
@@ -18,67 +17,65 @@ public class CharacterContainer : MonoBehaviour
     private GameObject character4;
     [SerializeField]
     private GameObject character5;
+    public static List<GameObject> unlockedCharacters = new List<GameObject>();
+    private GameObject character;
     // Start is called before the first frame update
     void Start()
     {
         characterContainer = GetComponent<RectTransform>();
-        for (int i = 1; i <= 5; i++)
-        {
-            switch (i)
-            {
-                case 1:
-                    if (Square.getUnlocked())
-                    {
-                        character1 = Instantiate(character1, transform.position, Quaternion.identity);
-                        character1.transform.SetParent(characterContainer);
-                        character1.transform.localScale = new Vector3(300, 300, 300);
-                        unlockedCharactersNum ++;
-                    }
-                    break;
-                case 2:
-                    if (Square1.getUnlocked())
-                    {
-                        character2 = Instantiate(character2, transform.position, Quaternion.identity);
-                        character2.transform.SetParent(characterContainer);
-                        character2.transform.localScale = new Vector3(300, 300, 300);
-                        unlockedCharactersNum ++;
-                    }
-                    break;
-                case 3:
-                    if (Square2.getUnlocked())
-                    {
-                        character3 = Instantiate(character3, transform.position, Quaternion.identity);
-                        character3.transform.SetParent(characterContainer);
-                        character3.transform.localScale = new Vector3(300, 300, 300);
-                        unlockedCharactersNum ++;
-                    }
-                    break;
-                case 4:
-                    if (Square3.getUnlocked())
-                    {
-                        character4 = Instantiate(character4, transform.position, Quaternion.identity);
-                        character4.transform.SetParent(characterContainer);
-                        character4.transform.localScale = new Vector3(300, 300, 300);
-                        unlockedCharactersNum ++;
-                    }
-                    break;
-                case 5:
-                    if (Square4.getUnlocked())
-                    {
-                        character5 = Instantiate(character5, transform.position, Quaternion.identity);
-                        character5.transform.SetParent(characterContainer);
-                        character5.transform.localScale = new Vector3(300, 300, 300);
-                        unlockedCharactersNum ++;
-                    }
-                    break;
-            }
-        }
-        characterContainer.sizeDelta = new Vector2(800 * unlockedCharactersNum, characterContainer.sizeDelta.y);
+        listOfCharacters();
+        characterContainer.sizeDelta = new Vector2(800 * unlockedCharacters.Count, characterContainer.sizeDelta.y);
     }
 
     void Update()
     {
         characterSelect();
+    }
+
+    public void listOfCharacters()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            switch (i)
+            {
+                case 1:
+                    if (Character1.getUnlocked())
+                    {
+                        unlockedCharacters.Add(character1);
+                    }
+                    break;
+                case 2:
+                    if (Character2.getUnlocked())
+                    {
+                        unlockedCharacters.Add(character2);
+                    }
+                    break;
+                case 3:
+                    if (Character3.getUnlocked())
+                    {
+                        unlockedCharacters.Add(character3);
+                    }
+                    break;
+                case 4:
+                    if (Character4.getUnlocked())
+                    {
+                        unlockedCharacters.Add(character4);
+                    }
+                    break;
+                case 5:
+                    if (Character5.getUnlocked())
+                    {
+                        unlockedCharacters.Add(character5);
+                    }
+                    break;
+            }
+        }
+        foreach (var unlockedCharacter in unlockedCharacters)
+        {
+            character = Instantiate(unlockedCharacter, transform.position, Quaternion.identity);
+            character.transform.SetParent(CharacterContainer.characterContainer);
+            character.transform.rotation = Quaternion.Euler(0,0,-90);
+        }
     }
 
     void characterSelect()
@@ -89,7 +86,7 @@ public class CharacterContainer : MonoBehaviour
         }
         else
         {
-            for (int i = 1; i <= 2*unlockedCharactersNum; i+=2)
+            for (int i = 1; i <= 2*unlockedCharacters.Count; i+=2)
             {
                 if (scrollValue < -2.31*i && scrollValue > -2.31*(i+1))
                 {

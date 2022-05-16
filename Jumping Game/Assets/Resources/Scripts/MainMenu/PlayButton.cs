@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayButton : MonoBehaviour
     void play()
     {
             Debug.Log("play");
+            SceneManager.LoadScene("Level1");
         // function to stay playing
     }
 }

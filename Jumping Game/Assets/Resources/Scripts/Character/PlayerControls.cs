@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         characterRB = GetComponent<Rigidbody2D>();
+        characterRB.gravityScale = 2;
         characterCollider = GetComponent<BoxCollider2D>();
         groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
     }
