@@ -4,41 +4,41 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class Character5
+public class HighestLevelData
 {
-    private static bool unlocked;
-    private static string filePath = Application.persistentDataPath + "/saveCharacter5State.txt";
-    public static bool getUnlocked()
+    private static int highestLevel;
+    private static string filePath = Application.persistentDataPath + "/HighestLevelData.txt";
+    public static int getHighestLevel()
     {
         if (File.Exists(filePath))
         {
             FileStream fs = new FileStream(filePath, FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
-            Character5.unlocked = (bool) bf.Deserialize(fs);
+            HighestLevelData.highestLevel = (int) bf.Deserialize(fs);
             fs.Close();
-            return unlocked;
-        } 
-        else
+            return highestLevel;
+        }
+        else 
         {
-            Character5.unlocked = false;
-            return unlocked;
+            HighestLevelData.highestLevel = 0;
+            return highestLevel;
         }
     }
-    public static void setUnlocked(bool unlocked)
+    public static void setHighestLevel(int highestLevel)
     {
-        Character5.unlocked = unlocked;
         if (File.Exists(filePath))
         {
             FileStream fs = new FileStream(filePath, FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(fs, Character5.unlocked);
+            bf.Serialize(fs, highestLevel);
             fs.Close();
-        } 
-        else
+
+        }
+        else 
         {
             FileStream fs = new FileStream(filePath, FileMode.Create);
             BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(fs, Character5.unlocked);
+            bf.Serialize(fs, highestLevel);
             fs.Close();
         }
     }

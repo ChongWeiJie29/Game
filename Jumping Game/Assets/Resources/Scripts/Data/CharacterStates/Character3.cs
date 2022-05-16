@@ -14,14 +14,14 @@ public class Character3
         {
             FileStream fs = new FileStream(filePath, FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
-            bool saveCharacterState = (bool) bf.Deserialize(fs);
+            Character3.unlocked = (bool) bf.Deserialize(fs);
             fs.Close();
-            return saveCharacterState;
+            return unlocked;
         } 
         else
         {
-            bool saveCharacterState = false;
-            return saveCharacterState;
+            Character3.unlocked = false;
+            return unlocked;
         }
     }
     public static void setUnlocked(bool unlocked)
