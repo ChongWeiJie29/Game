@@ -6,9 +6,11 @@ public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D characterRB;
     private FloatingJoystick joystick;
-    private bool jumping = false;
+    public bool jumping = false;
+
     private BoxCollider2D characterCollider;
     private BoxCollider2D groundCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,6 @@ public class PlayerControls : MonoBehaviour
         groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
         joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -34,10 +35,10 @@ public class PlayerControls : MonoBehaviour
         }
         if (joystick.Vertical > 0.5f && !jumping)
         {
-            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*9);
+            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*11);
             jumping = true;
         }
-    if (characterCollider.IsTouching(groundCollider))
+        if (characterCollider.IsTouching(groundCollider))
         {
             jumping = false;
         }

@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Level1 : MonoBehaviour
 {
-    [SerializeField]   
+    [SerializeField]
     private GameObject selectedCharacter;
     private GameObject pauseScreen;
     // Start is called before the first frame update
