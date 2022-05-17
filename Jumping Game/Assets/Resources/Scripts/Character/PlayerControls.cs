@@ -5,11 +5,10 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D characterRB;
+    private FloatingJoystick joystick;
     private bool jumping = false;
     private BoxCollider2D characterCollider;
     private BoxCollider2D groundCollider;
-    private Vector2 pointA;
-    private Vector2 pointB;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,49 +17,29 @@ public class PlayerControls : MonoBehaviour
         characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         characterCollider = GetComponent<BoxCollider2D>();
         groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
+        joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        joystickControls();
+        movement();
         cameraBorders();
     }
-
-    void checkOnGround()
+    void movement()
     {
-        if (characterCollider.IsTouching(groundCollider))
+        if (joystick.Horizontal > 0.2f || joystick.Horizontal < -0.2f)
+        {
+            characterRB.velocity = new Vector2(joystick.Horizontal*3, characterRB.velocity.y);
+        }
+        if (joystick.Vertical > 0.5f && !jumping)
+        {
+            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*9);
+            jumping = true;
+        }
+    if (characterCollider.IsTouching(groundCollider))
         {
             jumping = false;
-        }
-    }
-
-    void joystickControls()
-    {
-        bool isHolding = false;
-        if (Input.GetMouseButtonDown(0))
-        {
-            pointA = Camera.main.ScreenToWorldPoint( new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        }
-        if (Input.GetMouseButton(0))
-        {
-            isHolding = true;
-            pointB = Camera.main.ScreenToWorldPoint( new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        }
-        else{
-            isHolding = false;
-        }
-        if (isHolding)
-        {
-            Vector2 offset = pointB - pointA;
-            Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
-            characterRB.velocity = new Vector2(direction.x*700*Time.deltaTime, characterRB.velocity.y);
-            if(direction.y >= 0.5 && !jumping)
-            {
-                characterRB.AddForce(Vector2.up * 200 *Time.deltaTime, ForceMode2D.Impulse);
-                jumping = true;
-            }
-            checkOnGround();
         }
     }
 
