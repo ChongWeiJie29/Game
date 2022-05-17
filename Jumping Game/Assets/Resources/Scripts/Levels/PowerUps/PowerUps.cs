@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+{
+    private RectTransform powerUpTransform;
+    private VerticalLayoutGroup powerUpPanel;
+    private RectTransform powerUpPanelTransform;
+    private CanvasGroup canvasGroup;
+    private Vector2 initialPos;
+    void Start()
+    {
+        powerUpTransform = GetComponent<RectTransform>();
+        powerUpPanel = GameObject.Find("PowerUps").GetComponent<VerticalLayoutGroup>();
+        powerUpPanelTransform = GameObject.Find("PowerUps").GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        initialPos = powerUpTransform.anchoredPosition;
+        canvasGroup.blocksRaycasts = false;
+        Pot.eventData = null;
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        powerUpPanel.enabled = false;
+        powerUpTransform.anchoredPosition += eventData.delta / powerUpPanelTransform.localScale;
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        canvasGroup.blocksRaycasts = true;
+        if (Pot.eventData == null)
+        {
+            powerUpTransform.anchoredPosition = initialPos;
+        }
+        else
+        {
+
+        }
+    }
+}
