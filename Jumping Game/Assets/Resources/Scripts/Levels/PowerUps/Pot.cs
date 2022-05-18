@@ -7,7 +7,7 @@ using System;
 public class Pot : MonoBehaviour, IDropHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public static PointerEventData eventData;
-    private CanvasGroup canvas;
+    public static CanvasGroup canvas;
     private GameObject[] listOfPowerUps = new GameObject[3]; 
     private Animator potAnim;
     private RectTransform potTransform;
@@ -75,6 +75,7 @@ public class Pot : MonoBehaviour, IDropHandler, IBeginDragHandler, IEndDragHandl
                 Array.Clear(listOfPowerUps, 0, listOfPowerUps.Length);
                 successfulPowerUp = true;
                 potAnim.SetFloat("fractionOfPotions", (float)0);
+                canvas.blocksRaycasts = false;
                 //Code to execute power up
             }
             else

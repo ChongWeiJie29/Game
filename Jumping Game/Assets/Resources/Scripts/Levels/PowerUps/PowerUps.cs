@@ -56,6 +56,7 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         yield return new WaitForSeconds(secs);
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = .5f;
+        Pot.canvas.blocksRaycasts = true;
         Pot.successfulPowerUp = false;
     }
 }
