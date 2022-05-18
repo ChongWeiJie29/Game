@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PlayerControls : MonoBehaviour
     public static bool jumping = false;
 
     private BoxCollider2D characterCollider;
-    private BoxCollider2D groundCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,6 @@ public class PlayerControls : MonoBehaviour
         characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         characterRB.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         characterCollider = GetComponent<BoxCollider2D>();
-        groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
         joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
     }
     // Update is called once per frame
