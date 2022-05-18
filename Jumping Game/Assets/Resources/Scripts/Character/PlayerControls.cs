@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    private Rigidbody2D characterRB;
-    private FloatingJoystick joystick;
-    static public bool jumping = false;
+    public static Rigidbody2D characterRB;
+    public static FloatingJoystick joystick;
+    public static bool jumping = false;
 
     private BoxCollider2D characterCollider;
     private BoxCollider2D groundCollider;
@@ -15,8 +15,9 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         characterRB = GetComponent<Rigidbody2D>();
-        characterRB.gravityScale = 2;
+        characterRB.gravityScale = 3;
         characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        characterRB.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         characterCollider = GetComponent<BoxCollider2D>();
         groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
         joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
@@ -31,15 +32,15 @@ public class PlayerControls : MonoBehaviour
     {
         if (joystick.Horizontal > 0.2f || joystick.Horizontal < -0.2f)
         {
-            characterRB.velocity = new Vector2(joystick.Horizontal*3, characterRB.velocity.y);
+            characterRB.velocity = new Vector2(joystick.Horizontal*4, characterRB.velocity.y);
         }
+
         if (joystick.Vertical > 0.5f && !jumping)
         {
-            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*10);
+            characterRB.velocity = new Vector2(characterRB.velocity.x*4, joystick.Vertical*10);
             jumping = true;
         }
     }
-
     void cameraBorders()
     {
         float xMin;

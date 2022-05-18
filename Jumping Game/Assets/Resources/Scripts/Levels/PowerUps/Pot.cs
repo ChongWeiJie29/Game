@@ -24,7 +24,7 @@ public class Pot : MonoBehaviour, IDropHandler, IPointerDownHandler, IBeginDragH
     }
     void Update()
     {
-        Debug.Log(drag);
+        // Debug.Log(drag);
     }
     public void OnDrop(PointerEventData eventData)
     {

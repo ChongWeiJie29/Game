@@ -19,6 +19,11 @@ public class spiky_standard : MonoBehaviour
     void Update()
     {
         playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
+        Physics2D.IgnoreCollision(platformCollider, platformTrigger, true);
+        collisionCheck();
+        movement();
+    }
+    void collisionCheck(){
         if(platformCollider.IsTouching(playerCollider)){
             PlayerControls.jumping = false;
         }
@@ -26,11 +31,19 @@ public class spiky_standard : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.name==playerCollider.gameObject.name){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
+            Debug.Log("phasing");
         }
     }
     void OnTriggerExit2D(Collider2D other){
         if(other.gameObject.name==playerCollider.gameObject.name){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, false);
+            Debug.Log("not phasing");
+        }
+    }
+    void movement(){
+        if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping){
+            Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
+            PlayerControls.jumping = true;
         }
     }
 }
