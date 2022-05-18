@@ -55,7 +55,7 @@ public class LoadPowerUps : MonoBehaviour
                     powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power3"), transform.position, Quaternion.identity) as GameObject;
                     break;
                 case 4:
-                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Pot/Pot0"), transform.position, Quaternion.identity) as GameObject;
+                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Pot/Pot"), transform.position, Quaternion.identity) as GameObject;
                     break;    
             }
             powerUps.transform.SetParent(GameObject.Find("PowerUps").GetComponent<Transform>());

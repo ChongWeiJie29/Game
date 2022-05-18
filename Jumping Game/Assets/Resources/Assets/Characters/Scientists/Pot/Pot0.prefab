@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1981166468280162314}
-  - component: {fileID: 1347931704804381281}
   - component: {fileID: 4613756620522538521}
   - component: {fileID: -889529754394778870}
-  - component: {fileID: 2153199110398782001}
   m_Layer: 0
   m_Name: Pot0
   m_TagString: Untagged
@@ -38,20 +36,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.23, y: 1.33}
+  m_SizeDelta: {x: 1.2, y: 1.33}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1347931704804381281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6452710247706566147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5700ed5508952ea46a0d704a492fd0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &4613756620522538521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -90,15 +76,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &2153199110398782001
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6452710247706566147}
-  m_Enabled: 1
-  m_Alpha: 0.5
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

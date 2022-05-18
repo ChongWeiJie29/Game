@@ -8,7 +8,7 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
     private RectTransform powerUpTransform;
     private VerticalLayoutGroup powerUpPanel;
-    private RectTransform powerUpPanelTransform;
+    public static RectTransform powerUpPanelTransform;
     private CanvasGroup canvasGroup;
     public static Vector2 initialPos;
     void Start()
@@ -36,15 +36,12 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        if (Pot.eventData == null)
-        {
-            powerUpTransform.anchoredPosition = initialPos;
-        }
-        else
+        if (Pot.eventData != null)
         {
             canvasGroup.blocksRaycasts = false;
             StartCoroutine(passiveMe(5));
         }
+        powerUpTransform.anchoredPosition = initialPos;
         canvasGroup.alpha = .5f;
     }
      IEnumerator passiveMe(int secs)
