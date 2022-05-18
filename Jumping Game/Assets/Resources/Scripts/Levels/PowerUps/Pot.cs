@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public class Pot : MonoBehaviour, IDropHandler
 {
     public static PointerEventData eventData;
+    private CanvasGroup canvas;
     private GameObject[] listOfPowerUps = new GameObject[2]; 
+    void Start()
+    {
+        canvas = GetComponent<CanvasGroup>();
+    }
     void Update()
     {
         mixPowerUps();
@@ -16,7 +22,8 @@ public class Pot : MonoBehaviour, IDropHandler
         Pot.eventData = eventData;
         if (eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            canvas.alpha = 1;
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = PowerUps.initialPos;
             if (listOfPowerUps[0] == null)
             {
                 listOfPowerUps[0] = eventData.pointerDrag.GetComponent<RectTransform>().gameObject;
@@ -26,6 +33,10 @@ public class Pot : MonoBehaviour, IDropHandler
                 listOfPowerUps[1] = eventData.pointerDrag.GetComponent<RectTransform>().gameObject;
             }
         }
+        else
+        {
+            canvas.alpha = 1;
+        }
     }
 
     public void mixPowerUps()
@@ -33,6 +44,7 @@ public class Pot : MonoBehaviour, IDropHandler
         if (listOfPowerUps[1] != null)
         {
             Debug.Log("Mix powers");
+            Array.Clear(listOfPowerUps, 0, listOfPowerUps.Length);
         }
     }
 }

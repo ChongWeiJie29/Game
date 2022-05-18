@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: f32f7095da707f541994be3f6435469f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scientist Potion kit_22
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 275
+        width: 170
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 28, y: 0, z: 22, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f84b2f4d47d4af4fba08bab04452bff
+      internalID: 1493657686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist Potion kit_25
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 279
+        width: 132
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 12, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5316cbdd5ff89f4697546cd3869107d
+      internalID: 1315985443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist Potion kit_28
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 269
+        width: 163
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 15, y: 9, z: 28, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b23d116b179a1443810462a0b095260
+      internalID: 1269186752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist Potion kit_53
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 66
+        width: 139
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 5, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456fc8ba38f35244bbbcf8b2354e90e5
+      internalID: -996177421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist Potion kit_61
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 78
+        width: 123
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93af4927474aefc4a9bce4c20c1f2b3a
+      internalID: -747683237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist Potion kit_62
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 76
+        width: 122
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa47d130a82cc541ae07693bea192c7
+      internalID: 1162863438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist Potion kit_63
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 72
+        width: 125
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4159018713ebf45ab778a175e0df8a
+      internalID: 1089584430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Scientist Potion kit_23: -735413598
+      Scientist Potion kit_61: -747683237
+      Scientist Potion kit_46: 1931431075
+      Scientist Potion kit_2: -1132414301
+      Scientist Potion kit_59: -1028820738
+      Scientist Potion kit_64: -47854092
+      Scientist Potion kit_42: -1803620586
+      Scientist Potion kit_31: -1117969832
+      Scientist Potion kit_27: 2093879118
+      Scientist Potion kit_48: -1926733021
+      Scientist Potion kit_70: -1542286440
+      Scientist Potion kit_45: -335314826
+      Scientist Potion kit_26: -1213642149
+      Scientist Potion kit_51: 2120293020
+      Scientist Potion kit_5: -1786788014
+      Scientist Potion kit_25: 1315985443
+      Scientist Potion kit_39: -109424922
+      Scientist Potion kit_13: -705138344
+      Scientist Potion kit_24: -1870903592
+      Scientist Potion kit_54: -1806726146
+      Scientist Potion kit_53: -996177421
+      Scientist Potion kit_68: -246635290
+      Scientist Potion kit_0: -548286667
+      Scientist Potion kit_7: -721926873
+      Scientist Potion kit_6: -1637242231
+      Scientist Potion kit_28: 1269186752
+      Scientist Potion kit_69: 1434978160
+      Scientist Potion kit_71: 408675038
+      Scientist Potion kit_47: -308589349
+      Scientist Potion kit_63: 1089584430
+      Scientist Potion kit_15: 902189946
+      Scientist Potion kit_37: -180442344
+      Scientist Potion kit_11: 672950264
+      Scientist Potion kit_36: 152895153
+      Scientist Potion kit_17: -468107235
+      Scientist Potion kit_35: 75236975
+      Scientist Potion kit_40: -757104694
+      Scientist Potion kit_55: -475542474
+      Scientist Potion kit_57: 1972056777
+      Scientist Potion kit_58: -725688413
+      Scientist Potion kit_38: 1329794332
+      Scientist Potion kit_41: 646524598
+      Scientist Potion kit_22: 1493657686
+      Scientist Potion kit_9: -20830526
+      Scientist Potion kit_10: 1348177447
+      Scientist Potion kit_20: -1162584051
+      Scientist Potion kit_29: 1339979723
+      Scientist Potion kit_43: 418791023
+      Scientist Potion kit_1: 1970539976
+      Scientist Potion kit_21: -182626334
+      Scientist Potion kit_34: 462316931
+      Scientist Potion kit_66: -17950441
+      Scientist Potion kit_50: 1226717574
+      Scientist Potion kit_65: 645372658
+      Scientist Potion kit_30: 558842079
+      Scientist Potion kit_14: -1673535064
+      Scientist Potion kit_44: -50319973
+      Scientist Potion kit_49: -1221802151
+      Scientist Potion kit_18: -1431998821
+      Scientist Potion kit_33: -1043497321
+      Scientist Potion kit_52: -353487682
+      Scientist Potion kit_8: -1922800032
+      Scientist Potion kit_56: -1267389905
+      Scientist Potion kit_16: -1018816154
+      Scientist Potion kit_32: -490759992
+      Scientist Potion kit_67: -82161571
+      Scientist Potion kit_19: 753639205
+      Scientist Potion kit_60: -1204173876
+      Scientist Potion kit_3: -1694030962
+      Scientist Potion kit_62: 1162863438
+      Scientist Potion kit_12: 318342819
+      Scientist Potion kit_4: 40428867
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

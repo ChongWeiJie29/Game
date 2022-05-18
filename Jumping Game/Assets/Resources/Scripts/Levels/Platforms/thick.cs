@@ -18,7 +18,6 @@ public class thick : MonoBehaviour
     void Update()
     {
         playerCollider = GameObject.Find("scientist v2_0(Clone)").GetComponent<BoxCollider2D>();
-        Debug.Log(playerCollider);
     }
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.name=="scientist v2_0(Clone)"){

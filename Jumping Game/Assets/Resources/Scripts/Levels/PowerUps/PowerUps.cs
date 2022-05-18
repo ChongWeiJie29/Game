@@ -10,7 +10,7 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private VerticalLayoutGroup powerUpPanel;
     private RectTransform powerUpPanelTransform;
     private CanvasGroup canvasGroup;
-    private Vector2 initialPos;
+    public static Vector2 initialPos;
     void Start()
     {
         powerUpTransform = GetComponent<RectTransform>();
@@ -20,7 +20,7 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-
+        canvasGroup.alpha = 1;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -42,7 +42,14 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         }
         else
         {
-
+            canvasGroup.blocksRaycasts = false;
+            StartCoroutine(passiveMe(5));
         }
+        canvasGroup.alpha = .5f;
+    }
+     IEnumerator passiveMe(int secs)
+    {
+        yield return new WaitForSeconds(secs);
+        canvasGroup.blocksRaycasts = true;
     }
 }

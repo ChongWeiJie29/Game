@@ -47,25 +47,18 @@ public class LoadPowerUps : MonoBehaviour
             {
                 case 1:
                     powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power1"), transform.position, Quaternion.identity) as GameObject;
-                    powerUps.transform.SetParent(GameObject.Find("PowerUps").GetComponent<Transform>());
-                    powerUps.transform.localScale = new Vector3(2, 2, 0);
                     break;
                 case 2:
                     powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power2"), transform.position, Quaternion.identity) as GameObject;
-                    powerUps.transform.SetParent(GameObject.Find("PowerUps").GetComponent<Transform>());
-                    powerUps.transform.localScale = new Vector3(2, 2, 0);
                     break;
                 case 3:
                     powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power3"), transform.position, Quaternion.identity) as GameObject;
-                    powerUps.transform.SetParent(GameObject.Find("PowerUps").GetComponent<Transform>());
-                    powerUps.transform.localScale = new Vector3(2, 2, 0);
                     break;
                 case 4:
-                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Pot"), transform.position, Quaternion.identity) as GameObject;
-                    powerUps.transform.SetParent(GameObject.Find("PowerUps").GetComponent<Transform>());
-                    powerUps.transform.localScale = new Vector3(2, 2, 0);
+                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Pot/Pot0"), transform.position, Quaternion.identity) as GameObject;
                     break;    
             }
+            powerUps.transform.SetParent(GameObject.Find("PowerUps").GetComponent<Transform>());
         }
     }
 }
