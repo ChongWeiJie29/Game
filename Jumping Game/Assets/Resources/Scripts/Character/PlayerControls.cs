@@ -7,10 +7,9 @@ public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D characterRB;
     private FloatingJoystick joystick;
-    static public bool jumping = false;
+    public static bool jumping = false;
 
     private BoxCollider2D characterCollider;
-    private BoxCollider2D groundCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,6 @@ public class PlayerControls : MonoBehaviour
         characterRB.gravityScale = 2;
         characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         characterCollider = GetComponent<BoxCollider2D>();
-        groundCollider = GameObject.Find("Ground").GetComponent<BoxCollider2D>();
         joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
     }
     // Update is called once per frame
