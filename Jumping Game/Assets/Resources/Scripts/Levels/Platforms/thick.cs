@@ -17,15 +17,15 @@ public class thick : MonoBehaviour
     }
     void Update()
     {
-        playerCollider = GameObject.Find("scientist v2_0(Clone)").GetComponent<BoxCollider2D>();
+        playerCollider = Level1.selectedCharacterCollder.GetComponent<BoxCollider2D>();
     }
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.name=="scientist v2_0(Clone)"){
+        if(other.gameObject.name==playerCollider.gameObject.name){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
         }
     }
     void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.name=="scientist v2_0(Clone)"){
+        if(other.gameObject.name==playerCollider.gameObject.name){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, false);
         }
     }
