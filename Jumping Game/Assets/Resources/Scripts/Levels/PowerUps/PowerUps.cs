@@ -18,12 +18,20 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         powerUpPanelTransform = GameObject.Find("PowerUps").GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
+    void Update()
+    {
+        if (Pot.successfulPowerUp)
+        {
+            StartCoroutine(passiveMe(5));
+        }
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1;
+        
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        canvasGroup.alpha = 1;
         initialPos = powerUpTransform.anchoredPosition;
         canvasGroup.blocksRaycasts = false;
         Pot.eventData = null;
@@ -35,18 +43,19 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = true;
-        if (Pot.eventData != null)
-        {
-            canvasGroup.blocksRaycasts = false;
-            StartCoroutine(passiveMe(5));
-        }
         powerUpTransform.anchoredPosition = initialPos;
-        canvasGroup.alpha = .5f;
+        canvasGroup.alpha = .2f;
+        if (Pot.eventData == null)
+        {
+            canvasGroup.alpha = .5f;
+            canvasGroup.blocksRaycasts = true;
+        }
     }
      IEnumerator passiveMe(int secs)
     {
         yield return new WaitForSeconds(secs);
         canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = .5f;
+        Pot.successfulPowerUp = false;
     }
 }
