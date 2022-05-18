@@ -7,7 +7,7 @@ public class PlayerControls : MonoBehaviour
 {
     public static Rigidbody2D characterRB;
     public static FloatingJoystick joystick;
-    public static bool jumping = false;
+    public static bool jumping = false; // Max Jump is approx 1.8 squares
 
     private BoxCollider2D characterCollider;
 

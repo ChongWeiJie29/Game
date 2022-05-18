@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class thick : MonoBehaviour
+public class spike : MonoBehaviour
 {
-    private BoxCollider2D playerCollider;
     [SerializeField]
-    private BoxCollider2D platformCollider;
+    private EdgeCollider2D spikeCollider;
+    private BoxCollider2D playerCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    // Called once per frame
+
+    // Update is called once per frame
     void Update()
     {
         playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
-        if(platformCollider.IsTouching(playerCollider)){
-            PlayerControls.jumping = false;
+        deathCheck();
+    }
+    void deathCheck(){
+        if(playerCollider.IsTouching(spikeCollider)){
+            Debug.Log("DIED");
         }
     }
 }

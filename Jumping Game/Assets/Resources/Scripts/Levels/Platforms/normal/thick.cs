@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spiky_thick : MonoBehaviour
+public class thick : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
     [SerializeField]
@@ -17,6 +17,9 @@ public class spiky_thick : MonoBehaviour
     void Update()
     {
         playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
+        collisionCheck();
+    }
+    void collisionCheck(){
         if(platformCollider.IsTouching(playerCollider)){
             PlayerControls.jumping = false;
         }

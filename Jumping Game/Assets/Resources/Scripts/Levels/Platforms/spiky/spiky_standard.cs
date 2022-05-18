@@ -6,9 +6,7 @@ public class spiky_standard : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
     [SerializeField]
-    private BoxCollider2D platformCollider;
-    [SerializeField]
-    private BoxCollider2D platformTrigger;
+    private BoxCollider2D platformCollider, platformTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +42,11 @@ public class spiky_standard : MonoBehaviour
         if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
             PlayerControls.jumping = true;
+            StartCoroutine(reactivatePlatformCollider());
         }
+    }
+    IEnumerator reactivatePlatformCollider(){
+        yield return new WaitForSeconds(0.18f);
+        Physics2D.IgnoreCollision(platformCollider, playerCollider, false);
     }
 }
