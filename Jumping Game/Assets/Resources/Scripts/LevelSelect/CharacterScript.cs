@@ -11,6 +11,7 @@ public class CharacterScript : MonoBehaviour
     {
         selectedCharacter = CharacterContainer.unlockedCharacters.ElementAt(CharacterContainer.selectedCharacter);
         selectedCharacter = Instantiate(selectedCharacter, new Vector3(-1.35f, -2.45f, 0), Quaternion.identity);
+        selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacter.transform.rotation = Quaternion.Euler(0, 0, -90);
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LoadLevels : MonoBehaviour
@@ -25,6 +26,7 @@ public class LoadLevels : MonoBehaviour
             newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Level-" + i);
             newButton.GetComponent<Button>().interactable = true;
             Debug.Log("Level-" + i + "-Unlocked");
+            newButton.GetComponent<Button>().onClick.AddListener(()=>SceneManager.LoadScene("Level1"));
         }else{
             newButton.name = "Level-" + i + "-Locked";
             newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Locked\n\n" + "Level-" + i);
