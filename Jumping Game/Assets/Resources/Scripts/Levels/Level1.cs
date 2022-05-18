@@ -8,7 +8,7 @@ public class Level1 : MonoBehaviour
     [SerializeField]
     private GameObject selectedCharacter;
     private GameObject pauseScreen;
-    public static BoxCollider2D selectedCharacterCollder;
+    public static BoxCollider2D selectedCharacterCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class Level1 : MonoBehaviour
         selectedCharacter.transform.rotation = Quaternion.Euler(0,0,-90);
         selectedCharacter.AddComponent<PlayerControls>();
         selectedCharacter.AddComponent<Rigidbody2D>();
-        selectedCharacterCollder = selectedCharacter.AddComponent<BoxCollider2D>();
+        selectedCharacterCollider = selectedCharacter.AddComponent<BoxCollider2D>();
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
     }

@@ -6,7 +6,7 @@ public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D characterRB;
     private FloatingJoystick joystick;
-    public bool jumping = false;
+    static public bool jumping = false;
 
     private BoxCollider2D characterCollider;
     private BoxCollider2D groundCollider;
@@ -37,10 +37,6 @@ public class PlayerControls : MonoBehaviour
         {
             characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*10);
             jumping = true;
-        }
-        if (characterCollider.IsTouching(groundCollider))
-        {
-            jumping = false;
         }
     }
 
