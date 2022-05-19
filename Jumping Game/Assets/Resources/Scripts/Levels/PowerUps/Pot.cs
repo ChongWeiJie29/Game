@@ -67,9 +67,9 @@ public class Pot : MonoBehaviour, IDropHandler, IBeginDragHandler, IEndDragHandl
     }
     public  void OnEndDrag(PointerEventData eventData)
     {
-        if (potTransform.transform.position.x < selectedCharacter.transform.position.x + selectedCharacter.GetComponent<Renderer>().bounds.size.x && potTransform.transform.position.x > selectedCharacter.transform.position.x - selectedCharacter.GetComponent<Renderer>().bounds.size.x)
+        if (potTransform.transform.position.x < selectedCharacter.transform.position.x + selectedCharacter.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size.x && potTransform.transform.position.x > selectedCharacter.transform.position.x - selectedCharacter.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size.x)
         {
-            if (potTransform.transform.position.y < selectedCharacter.transform.position.y + selectedCharacter.GetComponent<Renderer>().bounds.size.y && potTransform.transform.position.y > selectedCharacter.transform.position.y - selectedCharacter.GetComponent<Renderer>().bounds.size.y)
+            if (potTransform.transform.position.y < selectedCharacter.transform.position.y + selectedCharacter.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size.y && potTransform.transform.position.y > selectedCharacter.transform.position.y - selectedCharacter.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size.y)
             {
                 potTransform.anchoredPosition = initialPos;
                 Array.Clear(listOfPowerUps, 0, listOfPowerUps.Length);
