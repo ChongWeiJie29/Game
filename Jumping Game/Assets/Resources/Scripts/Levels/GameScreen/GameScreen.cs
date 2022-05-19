@@ -6,7 +6,7 @@ public class GameScreen : MonoBehaviour
 {
     [SerializeField]
     private GameObject gameScreen;
-    private float panRate = -0.0007f;
+    private float panRate = -0.001f;
     public static Vector3 panVector;
     public static bool panEnabled = false;
 
