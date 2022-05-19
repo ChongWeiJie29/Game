@@ -19,7 +19,6 @@ public class Level1 : MonoBehaviour
         selectedCharacter.AddComponent<PlayerControls>();
         selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacterCollider = selectedCharacter.GetComponent<BoxCollider2D>();
-        selectedCharacter.transform.SetParent(gameScreen.transform);
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
     }

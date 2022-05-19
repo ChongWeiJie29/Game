@@ -6,7 +6,7 @@ public class crumbly_thick : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
     [SerializeField]
-    private BoxCollider2D platformCollider;
+    private BoxCollider2D platformCollider, platformTrigger;
     [SerializeField]
     private GameObject crumblyThickPlatform, num1, num2, num3;
     private bool destroying = false;
@@ -26,10 +26,15 @@ public class crumbly_thick : MonoBehaviour
     }
     void collisionCheck(){
         if(platformCollider.IsTouching(playerCollider)){
-            PlayerControls.jumping = false;
             if(!destroying){
                 destroying = true;
                 StartCoroutine(crumblyDestroy());
+            }
+            if(platformTrigger.IsTouching(playerCollider)){
+                PlayerControls.jumping = true;
+            }
+            else{
+                PlayerControls.jumping = false;
             }
         }
     }

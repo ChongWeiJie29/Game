@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8507466951717023399}
   - component: {fileID: 2131749204685005644}
   - component: {fileID: -2333907586173772180}
+  - component: {fileID: 5293188565335701115}
   - component: {fileID: 4323901317773176568}
   m_Layer: 0
   m_Name: SpikyThick
@@ -113,6 +114,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!61 &5293188565335701115
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907897757027950884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.05, y: 1.05}
+  m_EdgeRadius: 0
 --- !u!114 &4323901317773176568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformCollider: {fileID: -2333907586173772180}
-  spike: {fileID: 7162331232287348237}
+  platformTrigger: {fileID: 5293188565335701115}
 --- !u!1001 &5591538093026355136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192,11 +219,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2d78608c086b75489af119113973517, type: 3}
---- !u!1 &7162331232287348237 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3385743798444945869, guid: e2d78608c086b75489af119113973517, type: 3}
-  m_PrefabInstance: {fileID: 5591538093026355136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9167492587071877878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}

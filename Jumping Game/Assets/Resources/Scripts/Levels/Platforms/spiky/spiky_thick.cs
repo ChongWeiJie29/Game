@@ -6,7 +6,7 @@ public class spiky_thick : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
     [SerializeField]
-    private BoxCollider2D platformCollider;
+    private BoxCollider2D platformCollider, platformTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,12 @@ public class spiky_thick : MonoBehaviour
     }
     void collisionCheck(){
         if(platformCollider.IsTouching(playerCollider)){
-            PlayerControls.jumping = false;
+            if(platformTrigger.IsTouching(playerCollider)){
+                PlayerControls.jumping = true;
+            }
+            else{
+                PlayerControls.jumping = false;
+            }
         }
     }
 }
