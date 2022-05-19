@@ -6,7 +6,7 @@ using System.Linq;
 public class Level1 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject selectedCharacter;
+    private GameObject selectedCharacter, gameScreen;
     private GameObject pauseScreen;
     public static BoxCollider2D selectedCharacterCollider;
     
@@ -19,6 +19,7 @@ public class Level1 : MonoBehaviour
         selectedCharacter.AddComponent<PlayerControls>();
         selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacterCollider = selectedCharacter.GetComponent<BoxCollider2D>();
+        selectedCharacter.transform.SetParent(gameScreen.transform);
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
     }

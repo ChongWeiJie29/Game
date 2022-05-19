@@ -42,11 +42,6 @@ public class spiky_standard : MonoBehaviour
         if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
             PlayerControls.jumping = true;
-            StartCoroutine(reactivatePlatformCollider());
         }
-    }
-    IEnumerator reactivatePlatformCollider(){
-        yield return new WaitForSeconds(0.18f);
-        Physics2D.IgnoreCollision(platformCollider, playerCollider, false);
     }
 }

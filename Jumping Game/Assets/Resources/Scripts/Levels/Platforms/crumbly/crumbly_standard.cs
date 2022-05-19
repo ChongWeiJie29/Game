@@ -62,14 +62,9 @@ public class crumbly_standard : MonoBehaviour
         }
     }
     void movement(){
-        if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping){
+        if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping && platformCollider.IsTouching(playerCollider)){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
             PlayerControls.jumping = true;
-            StartCoroutine(reactivatePlatformCollider());
         }
-    }
-    IEnumerator reactivatePlatformCollider(){
-        yield return new WaitForSeconds(0.18f);
-        Physics2D.IgnoreCollision(platformCollider, playerCollider, false);
     }
 }

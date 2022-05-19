@@ -36,7 +36,7 @@ public class PlayerControls : MonoBehaviour
 
         if (joystick.Vertical > 0.5f && !jumping)
         {
-            characterRB.velocity = new Vector2(characterRB.velocity.x*4, joystick.Vertical*10);
+            characterRB.velocity = new Vector2(characterRB.velocity.x*2, joystick.Vertical*10.5f);
             jumping = true;
         }
     }
