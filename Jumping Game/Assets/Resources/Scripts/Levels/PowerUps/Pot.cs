@@ -32,7 +32,7 @@ public class Pot : MonoBehaviour, IDropHandler, IBeginDragHandler, IEndDragHandl
         if (eventData.pointerDrag != null)
         {
             canvas.alpha = 1;
-            if (!drag)
+            if (!drag && eventData.pointerDrag.transform.parent.gameObject == PowerUps.powerUpPanelTransform.gameObject)
             {
                 if (listOfPowerUps[0] == null)
                 {
