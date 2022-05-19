@@ -107,10 +107,10 @@ TextureImporter:
       name: scientist v2_0
       rect:
         serializedVersion: 2
-        x: 281
-        y: 290
-        width: 1116
-        height: 541
+        x: 288
+        y: 522
+        width: 543
+        height: 1117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

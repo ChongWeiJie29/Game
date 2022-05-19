@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 239018711}
   - component: {fileID: 239018710}
   m_Layer: 5
-  m_Name: GameScreen
+  m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,7 +788,6 @@ RectTransform:
   - {fileID: 939960574}
   - {fileID: 634880549}
   - {fileID: 1104585261}
-  - {fileID: 1760347471}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2818,7 +2817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1770f0ae8e607774394002b6a791158f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacter: {fileID: 8860194319901270365, guid: 9cf318daeb12a4f4c8f7bd936640266c, type: 3}
+  selectedCharacter: {fileID: 271302266649498783, guid: 26ea7da64d27ef341b77fc270ace676a, type: 3}
 --- !u!4 &1760347471
 Transform:
   m_ObjectHideFlags: 0
@@ -2827,12 +2826,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760347469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15590.401}
-  m_LocalScale: {x: 173.22668, y: 173.22668, z: 173.22668}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 239018713}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1786886770
 GameObject:
