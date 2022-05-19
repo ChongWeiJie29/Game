@@ -12,6 +12,8 @@ public class PlayerControls : MonoBehaviour
 
     private BoxCollider2D characterCollider;
     private Animator playerAnim;
+    private float playerSpeed = 4;
+    private float playerJump = 10.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (joystick.Horizontal > 0.2f || joystick.Horizontal < -0.2f)
         {
-            characterRB.velocity = new Vector2(joystick.Horizontal*4, characterRB.velocity.y);
+            characterRB.velocity = new Vector2(joystick.Horizontal*playerSpeed, characterRB.velocity.y);
             if (joystick.Horizontal > 0.2f)
             {
                 playerAnim.SetBool("isRunningRight", true);
@@ -54,7 +56,7 @@ public class PlayerControls : MonoBehaviour
 
         if (joystick.Vertical > joystickUp && !jumping)
         {
-            characterRB.velocity = new Vector2(characterRB.velocity.x*2, joystick.Vertical*10.5f);
+            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*playerJump);
             jumping = true;
         }
     }
