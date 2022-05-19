@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class PlayerControls : MonoBehaviour
     public static bool jumping = false; // Max Jump is approx 1.8 squares
 
     private BoxCollider2D characterCollider;
+    private Animator playerAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class PlayerControls : MonoBehaviour
         characterRB.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         characterCollider = GetComponent<BoxCollider2D>();
         joystick = GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>();
+        playerAnim = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -32,6 +33,21 @@ public class PlayerControls : MonoBehaviour
         if (joystick.Horizontal > 0.2f || joystick.Horizontal < -0.2f)
         {
             characterRB.velocity = new Vector2(joystick.Horizontal*4, characterRB.velocity.y);
+            if (joystick.Horizontal > 0.2f)
+            {
+                playerAnim.SetBool("isRunningRight", true);
+                playerAnim.SetBool("isRunningLeft", false);
+            }
+            else if (joystick.Horizontal < -0.2f)
+            {
+                playerAnim.SetBool("isRunningRight", false);
+                playerAnim.SetBool("isRunningLeft", true);
+            }
+        }
+        else
+        {
+            playerAnim.SetBool("isRunningRight", false);
+            playerAnim.SetBool("isRunningLeft", false);
         }
 
         if (joystick.Vertical > 0.5f && !jumping)

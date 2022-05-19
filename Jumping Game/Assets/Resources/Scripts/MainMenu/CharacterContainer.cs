@@ -75,7 +75,6 @@ public class CharacterContainer : MonoBehaviour
         {
             character = Instantiate(unlockedCharacter, transform.position, Quaternion.identity);
             character.transform.SetParent(CharacterContainer.characterContainer);
-            character.transform.rotation = Quaternion.Euler(0,0,-90);
         }
     }
 

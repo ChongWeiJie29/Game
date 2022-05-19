@@ -46,13 +46,13 @@ public class LoadPowerUps : MonoBehaviour
             switch(i)
             {
                 case 1:
-                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power1"), transform.position, Quaternion.identity) as GameObject;
+                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/PowerUps/Power1"), transform.position, Quaternion.identity) as GameObject;
                     break;
                 case 2:
-                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power2"), transform.position, Quaternion.identity) as GameObject;
+                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/PowerUps/Power2"), transform.position, Quaternion.identity) as GameObject;
                     break;
                 case 3:
-                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Power3"), transform.position, Quaternion.identity) as GameObject;
+                    powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/PowerUps/Power3"), transform.position, Quaternion.identity) as GameObject;
                     break;
                 case 4:
                     powerUps = Instantiate(Resources.Load($"Assets/Characters/{selectedPowerUps}/Pot/Pot"), transform.position, Quaternion.identity) as GameObject;
