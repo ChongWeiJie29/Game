@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8507466951717023399}
   - component: {fileID: 2131749204685005644}
-  - component: {fileID: -8626459396846424296}
-  - component: {fileID: 176432948264007886}
+  - component: {fileID: 8963401389224128172}
+  - component: {fileID: 8317238687127021460}
   - component: {fileID: 6901468269817970174}
   m_Layer: 0
   m_Name: SpikyStandard
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-8626459396846424296
-BoxCollider2D:
+--- !u!68 &8963401389224128172
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,20 +101,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.5}
   m_EdgeRadius: 0
---- !u!61 &176432948264007886
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!61 &8317238687127021460
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000031083822, y: -0.13676983}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -138,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0084372, y: 1.1775727}
+  m_Size: {x: 1.1, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &6901468269817970174
 MonoBehaviour:
@@ -152,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087f1f83f352f0849a93bf1397671178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformCollider: {fileID: -8626459396846424296}
-  platformTrigger: {fileID: 176432948264007886}
+  platformTop: {fileID: 8963401389224128172}
+  platformBottom: {fileID: 8317238687127021460}
 --- !u!1001 &5314086382032076817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_LocalPosition.z

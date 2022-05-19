@@ -178,8 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8507466951717023399}
   - component: {fileID: 2131749204685005644}
-  - component: {fileID: -6078919551754871025}
-  - component: {fileID: 4057123024383463602}
+  - component: {fileID: 7801536595693665808}
+  - component: {fileID: 8314762027742787967}
   - component: {fileID: 5246314078240732821}
   m_Layer: 0
   m_Name: CrumblyStandard
@@ -258,8 +258,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-6078919551754871025
-BoxCollider2D:
+--- !u!68 &7801536595693665808
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -271,20 +271,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.5}
   m_EdgeRadius: 0
---- !u!61 &4057123024383463602
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!61 &8314762027742787967
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +293,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0001386404, y: -0.100954026}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -308,7 +304,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0155168, y: 1.1091454}
+  m_Size: {x: 1.1, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &5246314078240732821
 MonoBehaviour:
@@ -326,8 +322,8 @@ MonoBehaviour:
   num1: {fileID: 5418227878438487852}
   num2: {fileID: 2167134536959431324}
   num3: {fileID: 3444227482721869647}
-  platformCollider: {fileID: -6078919551754871025}
-  platformTrigger: {fileID: 4057123024383463602}
+  platformTop: {fileID: 7801536595693665808}
+  platformBottom: {fileID: 8314762027742787967}
 --- !u!1 &5418227878438487852
 GameObject:
   m_ObjectHideFlags: 0

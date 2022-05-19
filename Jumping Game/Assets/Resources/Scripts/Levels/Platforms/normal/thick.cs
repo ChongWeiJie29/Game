@@ -6,12 +6,18 @@ public class thick : MonoBehaviour
 {
     private BoxCollider2D playerCollider;
     [SerializeField]
-    private BoxCollider2D platformCollider, platformTrigger;
+    private EdgeCollider2D platformTop; 
+    [SerializeField]
+    private BoxCollider2D platformBottom;
+
+    public static EdgeCollider2D thickPlatformTop;
+    public static BoxCollider2D thickPlatformBottom;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        thickPlatformTop = platformTop;
+        thickPlatformBottom = platformBottom;
     }
     // Called once per frame
     void Update()
@@ -20,13 +26,8 @@ public class thick : MonoBehaviour
         collisionCheck();
     }
     void collisionCheck(){
-        if(platformCollider.IsTouching(playerCollider)){
-            if(platformTrigger.IsTouching(playerCollider)){
-                PlayerControls.jumping = true;
-            }
-            else{
-                PlayerControls.jumping = false;
-            }
+        if(platformBottom.IsTouching(playerCollider)){
+            PlayerControls.jumping = true;
         }
     }
 }

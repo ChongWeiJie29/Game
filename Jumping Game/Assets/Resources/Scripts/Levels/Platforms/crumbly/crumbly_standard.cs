@@ -8,10 +8,15 @@ public class crumbly_standard : MonoBehaviour
     [SerializeField]
     private GameObject crumblyStandardPlatform, num1, num2, num3;
     [SerializeField]
-    private BoxCollider2D platformCollider, platformTrigger;
-    public static float destroyCrumblyTime = 2.5f;
+    private EdgeCollider2D platformTop;
+    [SerializeField]
+    private BoxCollider2D platformBottom;
+
+    public static EdgeCollider2D crumblyStandardTop;
+    public static BoxCollider2D crumblyStandardBottom;
+
+    public static float destroyCrumblyTime = 3f;
     private bool destroying = false;
-    private float joystickDown = PlayerControls.joystickDown;
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +24,25 @@ public class crumbly_standard : MonoBehaviour
         num1.SetActive(false);
         num2.SetActive(false);
         num3.SetActive(false);
-        Physics2D.IgnoreCollision(platformCollider, platformTrigger, true);
+
+        crumblyStandardTop = platformTop;
+        crumblyStandardBottom = platformBottom;
     }
     // Called once per frame
     void Update()
     {
         playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
-        Physics2D.IgnoreCollision(platformCollider, platformTrigger, true);
         collisionCheck();
         movement();
     }
+    void movement(){
+        if(PlayerControls.joystick.Vertical < PlayerControls.joystickDown && !PlayerControls.jumping && platformTop.IsTouching(playerCollider)){
+            Physics2D.IgnoreCollision(platformTop, playerCollider, true);
+            PlayerControls.jumping = true;
+        }
+    }
     void collisionCheck(){
-        if(platformCollider.IsTouching(playerCollider)){
-            PlayerControls.jumping = false;
+        if(platformBottom.IsTouching(playerCollider) || platformTop.IsTouching(playerCollider)){
             if(!destroying){
                 destroying = true;
                 StartCoroutine(crumblyDestroy());
@@ -51,21 +62,13 @@ public class crumbly_standard : MonoBehaviour
         crumblyStandardPlatform.SetActive(false);
     }
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.name==playerCollider.gameObject.name){
-            Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
-            Debug.Log("phasing");
+        if(other == playerCollider){
+            Physics2D.IgnoreCollision(platformTop, playerCollider, true);
         }
     }
     void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.name==playerCollider.gameObject.name){
-            Physics2D.IgnoreCollision(platformCollider, playerCollider, false);
-            Debug.Log("not phasing");
-        }
-    }
-    void movement(){
-        if (PlayerControls.joystick.Vertical < joystickDown && !PlayerControls.jumping && platformCollider.IsTouching(playerCollider)){
-            Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
-            PlayerControls.jumping = true;
+        if(other == playerCollider){
+            Physics2D.IgnoreCollision(platformTop, playerCollider, false);
         }
     }
 }

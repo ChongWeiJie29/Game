@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class spike : MonoBehaviour
 {
+    private BoxCollider2D playerCollider;
     [SerializeField]
     private EdgeCollider2D spikeCollider;
-    private BoxCollider2D playerCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,13 @@ public class spike : MonoBehaviour
     void Update()
     {
         playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
-        deathCheck();
     }
-    void deathCheck(){
-        if(playerCollider.IsTouching(spikeCollider)){
+    void OnTriggerEnter2D(Collider2D other){
+        if(other == playerCollider){
             Debug.Log("DIED");
         }
+    }
+    void OnTriggerExit2D(Collider2D other){
+
     }
 }
