@@ -7,6 +7,8 @@ public class PlayerControls : MonoBehaviour
     public static Rigidbody2D characterRB;
     public static FloatingJoystick joystick;
     public static bool jumping = false; // Max Jump is approx 1.8 squares
+    public static float joystickDown = -0.7f;
+    public static float joystickUp = 0.5f;
 
     private BoxCollider2D characterCollider;
     private Animator playerAnim;
@@ -50,7 +52,7 @@ public class PlayerControls : MonoBehaviour
             playerAnim.SetBool("isRunningLeft", false);
         }
 
-        if (joystick.Vertical > 0.5f && !jumping)
+        if (joystick.Vertical > joystickUp && !jumping)
         {
             characterRB.velocity = new Vector2(characterRB.velocity.x*2, joystick.Vertical*10.5f);
             jumping = true;

@@ -6,28 +6,28 @@ public class GameScreen : MonoBehaviour
 {
     [SerializeField]
     private GameObject gameScreen;
-    private float panRate = -0.001f;
+    private float panRate = 0.021f;
     public static Vector3 panVector;
     public static bool panEnabled = false;
+    private float joystickDown = PlayerControls.joystickDown;
+    private float joystickUp = PlayerControls.joystickUp;
 
     // Start is called before the first frame update
     void Start()
     {
         panVector = new Vector3(0f, panRate, 0f);
-        StartCoroutine(waitToPan());
     }
     // Update is called once per frame
     void Update()
     {
-        //panDown();
+        camControl();
     }
-    void panDown(){
-        if(panEnabled){
+    void camControl(){
+        if(PlayerControls.joystick.Vertical > joystickUp && PlayerControls.jumping){
+            gameScreen.transform.position -= panVector;
+        }
+        if(PlayerControls.joystick.Vertical < joystickDown && PlayerControls.jumping){
             gameScreen.transform.position += panVector;
         }
-    }
-    IEnumerator waitToPan(){
-        yield return new WaitForSeconds(3);
-        panEnabled = true;
     }
 }

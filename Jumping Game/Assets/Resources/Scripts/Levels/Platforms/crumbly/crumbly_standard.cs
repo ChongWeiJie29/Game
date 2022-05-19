@@ -11,6 +11,7 @@ public class crumbly_standard : MonoBehaviour
     private BoxCollider2D platformCollider, platformTrigger;
     public static float destroyCrumblyTime = 2.5f;
     private bool destroying = false;
+    private float joystickDown = PlayerControls.joystickDown;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +63,7 @@ public class crumbly_standard : MonoBehaviour
         }
     }
     void movement(){
-        if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping && platformCollider.IsTouching(playerCollider)){
+        if (PlayerControls.joystick.Vertical < joystickDown && !PlayerControls.jumping && platformCollider.IsTouching(playerCollider)){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
             PlayerControls.jumping = true;
         }

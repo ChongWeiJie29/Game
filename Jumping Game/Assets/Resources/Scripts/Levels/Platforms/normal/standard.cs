@@ -7,6 +7,7 @@ public class standard : MonoBehaviour
     private BoxCollider2D playerCollider;
     [SerializeField]
     private BoxCollider2D platformCollider, platformTrigger;
+    private float joystickDown = PlayerControls.joystickDown;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class standard : MonoBehaviour
         }
     }
     void movement(){
-        if (PlayerControls.joystick.Vertical < -0.7f && !PlayerControls.jumping){
+        if (PlayerControls.joystick.Vertical < joystickDown && !PlayerControls.jumping && platformCollider.IsTouching(playerCollider)){
             Physics2D.IgnoreCollision(platformCollider, playerCollider, true);
             PlayerControls.jumping = true;
         }
