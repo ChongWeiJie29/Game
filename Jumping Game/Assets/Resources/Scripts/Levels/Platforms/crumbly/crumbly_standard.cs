@@ -2,73 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crumbly_standard : MonoBehaviour
+public class crumbly_standard : standard
 {
-    private BoxCollider2D playerCollider;
     [SerializeField]
-    private GameObject crumblyStandardPlatform, num1, num2, num3;
-    [SerializeField]
-    private EdgeCollider2D platformTop;
-    [SerializeField]
-    private BoxCollider2D platformBottom;
-
-    public static EdgeCollider2D crumblyStandardTop;
-    public static BoxCollider2D crumblyStandardBottom;
-
-    public static float destroyCrumblyTime = 3f;
+    private GameObject num1, num2, num3;
     private bool destroying = false;
+    public static float destroyTime = 3f;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         num1.SetActive(false);
         num2.SetActive(false);
         num3.SetActive(false);
+    }
 
-        crumblyStandardTop = platformTop;
-        crumblyStandardBottom = platformBottom;
-    }
-    // Called once per frame
-    void Update()
+    public override void Update()
     {
-        playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
+        base.Update();
         collisionCheck();
-        movement();
     }
-    void movement(){
-        if(PlayerControls.joystick.Vertical < PlayerControls.joystickDown && !PlayerControls.jumping && platformTop.IsTouching(playerCollider)){
-            Physics2D.IgnoreCollision(platformTop, playerCollider, true);
-            PlayerControls.jumping = true;
-        }
-    }
-    void collisionCheck(){
-        if(platformBottom.IsTouching(playerCollider) || platformTop.IsTouching(playerCollider)){
-            if(!destroying){
-                destroying = true;
-                StartCoroutine(crumblyDestroy());
+
+    void collisionCheck()
+    {
+        if(platform.GetComponent<BoxCollider2D>().IsTouching(Level1.selectedCharacterCollider))
+        {
+            if(!destroying)
+            {
+                StartCoroutine(destroyPlatform());
             }
         }
     }
-    IEnumerator crumblyDestroy(){
+
+    IEnumerator destroyPlatform()
+    {
+        destroying = true;
+
         num3.SetActive(true);
-        yield return new WaitForSeconds(destroyCrumblyTime/3);
+        yield return new WaitForSeconds(destroyTime/3);
         num3.SetActive(false);
+
         num2.SetActive(true);
-        yield return new WaitForSeconds(destroyCrumblyTime/3);
+        yield return new WaitForSeconds(destroyTime/3);
         num2.SetActive(false);
+        
         num1.SetActive(true);
-        yield return new WaitForSeconds(destroyCrumblyTime/3);
+        yield return new WaitForSeconds(destroyTime/3);
         num1.SetActive(false);
-        crumblyStandardPlatform.SetActive(false);
-    }
-    void OnTriggerEnter2D(Collider2D other){
-        if(other == playerCollider){
-            Physics2D.IgnoreCollision(platformTop, playerCollider, true);
-        }
-    }
-    void OnTriggerExit2D(Collider2D other){
-        if(other == playerCollider){
-            Physics2D.IgnoreCollision(platformTop, playerCollider, false);
-        }
+
+        platform.SetActive(false);
     }
 }

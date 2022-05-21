@@ -17,14 +17,11 @@ public class spike : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
+        deathCheck();
     }
-    void OnTriggerEnter2D(Collider2D other){
-        if(other == playerCollider){
+    void deathCheck(){
+        if(spikeCollider.IsTouching(Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>())){
             Debug.Log("DIED");
         }
-    }
-    void OnTriggerExit2D(Collider2D other){
-
     }
 }

@@ -2,57 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crumbly_thick : MonoBehaviour
+public class crumbly_thick : thick
 {
-    private BoxCollider2D playerCollider;
     [SerializeField]
-    private EdgeCollider2D platformTop; 
-    [SerializeField]
-    private BoxCollider2D platformBottom;
-    [SerializeField]
-    private GameObject crumblyThickPlatform, num1, num2, num3;
+    private GameObject num1, num2, num3;
+    private float destroyTime = crumbly_standard.destroyTime;
     private bool destroying = false;
 
-    public static EdgeCollider2D crumblyThickTop;
-    public static BoxCollider2D crumblyThickBottom;
-
-    // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         num1.SetActive(false);
         num2.SetActive(false);
         num3.SetActive(false);
-
-        crumblyThickTop = platformTop;
-        crumblyThickBottom = platformBottom;
     }
-    // Called once per frame
-    void Update()
+
+    public override void Update()
     {
-        playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
+        base.Update();
         collisionCheck();
     }
-    void collisionCheck(){
-        if(platformBottom.IsTouching(playerCollider) || platformTop.IsTouching(playerCollider)){
-            if(!destroying){
-                destroying = true;
-                StartCoroutine(crumblyDestroy());
-            }
-            if(platformBottom.IsTouching(playerCollider)){
-                PlayerControls.jumping = true;
+
+    void collisionCheck()
+    {
+        if(platform.GetComponent<BoxCollider2D>().IsTouching(Level1.selectedCharacterCollider))
+        {
+            if(!destroying)
+            {
+                StartCoroutine(destroyPlatform());
             }
         }
     }
-    IEnumerator crumblyDestroy(){
+
+    IEnumerator destroyPlatform()
+    {
+        destroying = true;
+
         num3.SetActive(true);
-        yield return new WaitForSeconds(crumbly_standard.destroyCrumblyTime/3);
+        yield return new WaitForSeconds(destroyTime/3);
         num3.SetActive(false);
+
         num2.SetActive(true);
-        yield return new WaitForSeconds(crumbly_standard.destroyCrumblyTime/3);
+        yield return new WaitForSeconds(destroyTime/3);
         num2.SetActive(false);
+        
         num1.SetActive(true);
-        yield return new WaitForSeconds(crumbly_standard.destroyCrumblyTime/3);
+        yield return new WaitForSeconds(destroyTime/3);
         num1.SetActive(false);
-        crumblyThickPlatform.SetActive(false);
+
+        platform.SetActive(false);
     }
 }

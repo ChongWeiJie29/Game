@@ -4,41 +4,47 @@ using UnityEngine;
 
 public class standard : MonoBehaviour
 {
-    private BoxCollider2D playerCollider;
     [SerializeField]
-    private EdgeCollider2D platformTop;
-    [SerializeField]
-    private BoxCollider2D platformBottom;
-    
-    public static EdgeCollider2D standardPlatformTop;
-    public static BoxCollider2D standardPlatformBottom;
+    public GameObject platform;
+    private Vector2 characterPosition;
+    private float joystickUp, joystickDown;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
-        standardPlatformTop = platformTop;
-        standardPlatformBottom = platformBottom;
+        joystickUp = PlayerControls.joystickUp;
+        joystickDown = PlayerControls.joystickDown;
     }
-    // Called once per frame
-    void Update()
+
+    // Update is called once per frame
+    public virtual void Update()
     {
-        playerCollider = Level1.selectedCharacterCollider.GetComponent<BoxCollider2D>();
-        movement();
+        characterPosition = Level1.selectedCharacterCollider.gameObject.transform.position;
+        platformRules();
     }
-    void movement(){
-        if(PlayerControls.joystick.Vertical < PlayerControls.joystickDown && !PlayerControls.jumping && platformTop.IsTouching(playerCollider)){
-            Physics2D.IgnoreCollision(platformTop, playerCollider, true);
-            PlayerControls.jumping = true;
+
+    void platformRules()
+    {
+        Vector2 platformPosition = platform.transform.position;
+        Vector2 platformExtents = platform.GetComponent<BoxCollider2D>().bounds.extents;
+        Vector2 characterExtents = Level1.selectedCharacterCollider.gameObject.GetComponent<BoxCollider2D>().bounds.extents;
+
+        float platformTop = platformPosition.y + platformExtents.y - 0.015f;
+        float characterBottom = characterPosition.y - characterExtents.y + 0.015f;
+
+        if(platformTop >= characterBottom)
+        {
+            Physics2D.IgnoreCollision(Level1.selectedCharacterCollider, platform.GetComponent<BoxCollider2D>(), true);
         }
-    }
-    void OnTriggerEnter2D(Collider2D other){
-        if(other == playerCollider){
-            Physics2D.IgnoreCollision(platformTop, playerCollider, true);
-        }
-    }
-    void OnTriggerExit2D(Collider2D other){
-        if(other == playerCollider){
-            Physics2D.IgnoreCollision(platformTop, playerCollider, false);
+        else{
+            if(PlayerControls.joystick.Vertical < joystickDown)
+            {
+                Physics2D.IgnoreCollision(Level1.selectedCharacterCollider, platform.GetComponent<BoxCollider2D>(), true);
+            }
+            else
+            {
+                Physics2D.IgnoreCollision(Level1.selectedCharacterCollider, platform.GetComponent<BoxCollider2D>(), false);
+            }
         }
     }
 }
