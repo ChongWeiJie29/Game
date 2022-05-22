@@ -8,7 +8,7 @@ public class EnemyControls : MonoBehaviour
     [Header("Pathfinding")]
     private Transform target;
     private float activateDistance = 50f;
-    private float pathUpdateSeconds = 0.1f;
+    // private float pathUpdateSeconds = 0.1f;
 
     [Header("Physics")]
     private float speed = 2.5f;
