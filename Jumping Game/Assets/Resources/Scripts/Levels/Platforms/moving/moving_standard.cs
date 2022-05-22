@@ -5,7 +5,7 @@ using UnityEngine;
 public class moving_standard : standard
 {
     public static float shiftRate = 0.004f;
-    public static float xLimit = 1.06f;
+    public static float xLimit = 1.04f;
 
     public override void Update()
     {
