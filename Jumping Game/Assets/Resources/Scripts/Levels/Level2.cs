@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level1 : Level
+public class Level2 : Level
 {
-    new public static bool isUnlocked = true;
+    new public static bool isUnlocked = false;
     new public static bool isFinished = false;
-    void unlockNextLevel()
+    /* void unlockNextLevel()
     {
-        if (Level2.isUnlocked == false)
+        if (Level3.isUnlocked == false)
         {
-            Level2.isUnlocked = true;
+            Level3.isUnlocked = true;
             return;
         }
     }
@@ -23,6 +23,5 @@ public class Level1 : Level
         {
             unlockNextLevel();
         }
-    }
+    } */
 }
- 
