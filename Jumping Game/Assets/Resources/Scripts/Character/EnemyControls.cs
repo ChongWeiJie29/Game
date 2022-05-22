@@ -33,10 +33,10 @@ public class EnemyControls : MonoBehaviour
         seeker = GetComponent<Seeker>();
         enemyRB = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
+        // InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
-    private void FixedUpdate()
+    /* private void FixedUpdate()
     {
         target = Level1.selectedCharacterCollider.gameObject.transform;
         if (TargetInDistance() && followEnabled)
@@ -44,7 +44,7 @@ public class EnemyControls : MonoBehaviour
             PathFollow();
         }
         cameraBorders();
-    }
+    } */
 
     private void UpdatePath()
     {
