@@ -14,7 +14,7 @@ public class EnemyControls : MonoBehaviour
     private float speed = 2.5f;
     private float nextWaypointDistance = 0.1f;
     private float jumpNodeHeightRequirement = 0.9f;
-    private float jumpModifier = 8;
+    private float jumpModifier = 11.5f;
     private float jumpCheckOffset = 0.1f;
 
     [Header("Custom Behavior")]

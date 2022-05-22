@@ -6,7 +6,7 @@ public class standard : MonoBehaviour
 {
     [SerializeField]
     public GameObject platform;
-    private Vector2 characterPosition;
+    private Vector2 characterPosition, enemyPosition;
     private float joystickUp, joystickDown;
 
     // Start is called before the first frame update
@@ -20,6 +20,7 @@ public class standard : MonoBehaviour
     public virtual void Update()
     {
         characterPosition = Level1.selectedCharacterCollider.gameObject.transform.position;
+        enemyPosition = Level1.enemyCharacterCollider.gameObject.transform.position;
         platformRules();
     }
 
@@ -28,9 +29,11 @@ public class standard : MonoBehaviour
         Vector2 platformPosition = platform.transform.position;
         Vector2 platformExtents = platform.GetComponent<BoxCollider2D>().bounds.extents;
         Vector2 characterExtents = Level1.selectedCharacterCollider.gameObject.GetComponent<BoxCollider2D>().bounds.extents;
+        Vector2 enemyExtents = Level1.enemyCharacterCollider.gameObject.GetComponent<BoxCollider2D>().bounds.extents;
 
         float platformTop = platformPosition.y + platformExtents.y - 0.015f;
         float characterBottom = characterPosition.y - characterExtents.y + 0.015f;
+        float enemyBottom = enemyPosition.y - enemyExtents.y + 0.015f;
 
         if(platformTop >= characterBottom)
         {
@@ -45,6 +48,11 @@ public class standard : MonoBehaviour
             {
                 Physics2D.IgnoreCollision(Level1.selectedCharacterCollider, platform.GetComponent<BoxCollider2D>(), false);
             }
+        }
+
+        if(platformTop >= enemyBottom)
+        {
+            Physics2D.IgnoreCollision(Level1.enemyCharacterCollider, platform.GetComponent<BoxCollider2D>(), true);
         }
     }
 }

@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour
     private BoxCollider2D characterCollider;
     private Animator playerAnim;
     private float playerSpeed = 5;
-    private float playerJump = 14f;
+    private float playerJump = 13.7f;
     private bool jumping = false; //Max Jump is approx 1.8 squares
 
 

@@ -11,6 +11,7 @@ public class Level1 : MonoBehaviour
     public static BoxCollider2D selectedCharacterCollider;
     [SerializeField]
     private GameObject enemyCharacter;
+    public static BoxCollider2D enemyCharacterCollider;
     public static bool isUnlocked = true;
     
     // Start is called before the first frame update
@@ -22,7 +23,8 @@ public class Level1 : MonoBehaviour
         selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacterCollider = selectedCharacter.GetComponent<BoxCollider2D>();
 
-        Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
+        enemyCharacter = Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
+        enemyCharacterCollider = enemyCharacter.GetComponent<BoxCollider2D>();
 
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);

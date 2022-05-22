@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class moving_standard : standard
 {
-    public static float defaultShiftRate = 0.0015f;
+    public static float defaultShiftRate = 0.004f;
     private float platformShiftRate = defaultShiftRate;
     public static float xLimit = 1.04f;
 
