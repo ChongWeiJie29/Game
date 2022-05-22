@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moving_standard : standard
+public class crumbly_moving_standard : crumbly_standard
 {
-    public static float defaultShiftRate = 0.004f;
+    private static float defaultShiftRate = moving_standard.defaultShiftRate;
     private float platformShiftRate = defaultShiftRate;
-    public static float xLimit = 1.04f;
+    private float xLimit = moving_standard.xLimit;
 
     public override void Update()
     {
