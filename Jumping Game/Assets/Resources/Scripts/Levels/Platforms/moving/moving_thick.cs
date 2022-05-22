@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class moving_thick : thick
 {
-    private float shiftRate = -moving_standard.shiftRate;
+    private float shiftRate = -moving_standard.defaultShiftRate;
     private float xLimit = moving_standard.xLimit;
 
     public override void Update()

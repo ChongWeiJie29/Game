@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class moving_standard : standard
 {
-    public static float shiftRate = 0.004f;
+    public static float defaultShiftRate = 0.0015f;
+    private float platformShiftRate = defaultShiftRate;
     public static float xLimit = 1.04f;
 
     public override void Update()
@@ -16,10 +17,10 @@ public class moving_standard : standard
 
     void shiftPlatform()
     {
-        platform.transform.position += new Vector3(shiftRate, 0f, 0f);
+        platform.transform.position += new Vector3(platformShiftRate, 0f, 0f);
         if(platform.transform.position.x >= xLimit || platform.transform.position.x <= -xLimit)
         {
-            shiftRate *= -1;
+            platformShiftRate *= -1;
         }
     }
 
@@ -27,7 +28,7 @@ public class moving_standard : standard
     {
         if(platform.GetComponent<BoxCollider2D>().IsTouching(Level1.selectedCharacterCollider))
         {
-            Level1.selectedCharacterCollider.gameObject.transform.position += new Vector3(shiftRate, 0f, 0f);
+            Level1.selectedCharacterCollider.gameObject.transform.position += new Vector3(platformShiftRate, 0f, 0f);
         }
     }
 }
