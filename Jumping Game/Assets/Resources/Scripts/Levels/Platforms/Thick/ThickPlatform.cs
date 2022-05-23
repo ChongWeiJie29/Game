@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class thick : MonoBehaviour
+public class ThickPlatform : MonoBehaviour
 {
     [SerializeField]
     public GameObject platform;

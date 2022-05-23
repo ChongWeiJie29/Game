@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crumbly_thick : thick
+public class ThickCrumbly : ThickPlatform
 {
     [SerializeField]
     private GameObject num1, num2, num3;
-    private float destroyTime = crumbly_standard.destroyTime;
+    private float destroyTime = StandardCrumbly.destroyTime;
     private bool destroying = false;
     private Vector2 characterPosition;
 

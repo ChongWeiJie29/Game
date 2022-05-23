@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crumbly_moving_thick : crumbly_thick
+public class ThickMovingCrumbly : ThickCrumbly
 {
-    private float shiftRate = -moving_standard.defaultShiftRate;
-    private float xLimit = moving_standard.xLimit;
+    private float shiftRate = -StandardMoving.defaultShiftRate;
+    private float xLimit = StandardMoving.xLimit;
 
     public override void Update()
     {

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8507466951717023399}
   - component: {fileID: 2131749204685005644}
   - component: {fileID: 4538254009004313849}
-  - component: {fileID: -6170868739987403947}
+  - component: {fileID: 5779619651764470844}
   m_Layer: 6
-  m_Name: StandardPlatform
+  m_Name: StandardSlippery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.62900853, g: 0.3726415, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4907897757027950884}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 49a39663ed982ca4594ede89502058f2, type: 2}
+  m_Material: {fileID: 6200000, guid: 26e068ceaea612346bb300cdfb6740ad, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-6170868739987403947
+--- !u!114 &5779619651764470844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4907897757027950884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29fda1df17c23f46be83c5b6d813acb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cc2501937880244584afaf48acecb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4907897757027950884}

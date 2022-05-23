@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moving_thick : thick
+public class ThickMoving : ThickPlatform
 {
-    private static float shiftRate = -moving_standard.defaultShiftRate;
+    private static float shiftRate = -StandardMoving.defaultShiftRate;
     private float platformShiftRate = shiftRate;
-    private float xLimit = moving_standard.xLimit;
+    private float xLimit = StandardMoving.xLimit;
 
     public override void Update()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crumbly_standard : standard
+public class StandardCrumbly : StandardPlatform
 {
     [SerializeField]
     private GameObject num1, num2, num3;

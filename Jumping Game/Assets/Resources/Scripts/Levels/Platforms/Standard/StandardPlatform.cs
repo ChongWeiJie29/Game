@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class standard : MonoBehaviour
+public class StandardPlatform : MonoBehaviour
 {
     [SerializeField]
     public GameObject platform;
@@ -47,13 +47,13 @@ public class standard : MonoBehaviour
             }
         }
 
-        if(platformTop >= EnemyControls.enemyRB.gameObject.transform.position.y - EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.extents.y)
+        /*if(platformTop >= EnemyControls.enemyRB.gameObject.transform.position.y - EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.extents.y)
         {
             Physics2D.IgnoreCollision(EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>(), platform.GetComponent<BoxCollider2D>(), true);
         }
         else
         {
             Physics2D.IgnoreCollision(EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>(), platform.GetComponent<BoxCollider2D>(), false);    
-        }
+        }*/
     }
 }
