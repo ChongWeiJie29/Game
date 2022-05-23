@@ -11,6 +11,7 @@ public class Level1 : Level
         if (Level2.isUnlocked == false)
         {
             Level2.isUnlocked = true;
+            HighestLevelData.setHighestLevel(2);
             return;
         }
     }

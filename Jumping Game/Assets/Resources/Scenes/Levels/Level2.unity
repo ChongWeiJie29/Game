@@ -1385,7 +1385,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1015175604}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3169,7 +3169,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1015175604}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3896,12 +3896,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2008675553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1770f0ae8e607774394002b6a791158f, type: 3}
+  m_Script: {fileID: 11500000, guid: e61378c291f314d4b8d70ccfe022ca07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacter: {fileID: 271302266649498783, guid: 26ea7da64d27ef341b77fc270ace676a, type: 3}
-  gameScreen: {fileID: 695776189}
-  enemyCharacter: {fileID: 6357494306062124933, guid: 38219f5cf6721d64ca8d4a911adf767b, type: 3}
 --- !u!1 &2061301543
 GameObject:
   m_ObjectHideFlags: 0
