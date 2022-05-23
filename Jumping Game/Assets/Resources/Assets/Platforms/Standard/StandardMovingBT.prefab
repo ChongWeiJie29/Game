@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 0.15, z: 173.22668}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4266686926736008889}
+  - {fileID: 5573391522134792264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8163749, g: 0.9622642, b: 0.79432184, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,17 +126,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4907897757027950884}
-  Button: {fileID: 689243070733421876}
---- !u!1001 &5171122757555966392
+  moveButton: {fileID: 9222903386365801413}
+--- !u!1001 &3579657913421819721
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 8507466951717023399}
     m_Modifications:
+    - target: {fileID: 2328288545270121480, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5643901125501967500, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: MoveButton
       objectReference: {fileID: 0}
     - target: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
       propertyPath: m_RootOrder
@@ -148,15 +152,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.000033325017
       objectReference: {fileID: 0}
     - target: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.375
+      value: -0.376
       objectReference: {fileID: 0}
     - target: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -192,39 +200,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
---- !u!1 &689243070733421876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5643901125501967500, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
-  m_PrefabInstance: {fileID: 5171122757555966392}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &5448175443854793685
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689243070733421876}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00047004223, y: 0.0014102403}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1308558, y: 0.12521492}
-  m_EdgeRadius: 0
---- !u!4 &4266686926736008889 stripped
+--- !u!4 &5573391522134792264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9004338219821102849, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
-  m_PrefabInstance: {fileID: 5171122757555966392}
+  m_PrefabInstance: {fileID: 3579657913421819721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9222903386365801413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5643901125501967500, guid: c8f95e799a44fde48bb03adb0428f14e, type: 3}
+  m_PrefabInstance: {fileID: 3579657913421819721}
   m_PrefabAsset: {fileID: 0}

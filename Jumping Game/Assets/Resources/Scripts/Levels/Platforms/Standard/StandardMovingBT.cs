@@ -5,7 +5,7 @@ using UnityEngine;
 public class StandardMovingBT : StandardPlatform
 {
     [SerializeField]
-    private GameObject Button;
+    private GameObject moveButton;
     public static float defaultShiftRate = StandardMoving.defaultShiftRate;
     private float platformShiftRate = defaultShiftRate;
     private float xLimit = StandardMoving.xLimit;
@@ -17,7 +17,7 @@ public class StandardMovingBT : StandardPlatform
     }
 
     void buttonPressed(){
-        if(Button.GetComponent<BoxCollider2D>().IsTouching(Level1.selectedCharacterCollider)){
+        if(moveButton.GetComponent<BoxCollider2D>().IsTouching(Level1.selectedCharacterCollider)){
             shiftPlatform();
             shiftCharacter();
         }

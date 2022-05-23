@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6242460959849601236}
+  - {fileID: 3854278512137736912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4907897757027950884}
---- !u!1001 &7206311916162043362
+--- !u!1001 &566747977011464166
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -135,7 +135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3385743798444945869, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_Name
-      value: spike
+      value: VerticalSpike
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_RootOrder
@@ -147,15 +147,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.254
+      value: -0.30693665
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.73
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
       propertyPath: m_LocalPosition.z
@@ -191,8 +191,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2d78608c086b75489af119113973517, type: 3}
---- !u!4 &6242460959849601236 stripped
+--- !u!4 &3854278512137736912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3648016486214440246, guid: e2d78608c086b75489af119113973517, type: 3}
-  m_PrefabInstance: {fileID: 7206311916162043362}
+  m_PrefabInstance: {fileID: 566747977011464166}
   m_PrefabAsset: {fileID: 0}
