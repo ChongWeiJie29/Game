@@ -7,11 +7,11 @@ public class EnemyControls : MonoBehaviour
 {
     private Transform target;
     private float activateDistance = 50f;
-    private float pathUpdateSeconds = 0.1f;
+    // private float pathUpdateSeconds = 0.1f;
     private float speed = 2.5f;
     private float nextWaypointDistance = 0.1f;
     private float jumpNodeHeightRequirement = 0.9f;
-    private float jumpModifier = 11.5f;
+    // private float jumpModifier = 11.5f;
     private float jumpCheckOffset = 0.1f;
     private bool followEnabled = true;
     private bool jumpEnabled = true;
@@ -41,7 +41,7 @@ public class EnemyControls : MonoBehaviour
             PathFollow();
         }
         cameraBorders();
-    }
+    } */
     private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
@@ -119,5 +119,5 @@ public class EnemyControls : MonoBehaviour
         xMin = Camera.main.ViewportToWorldPoint(new Vector2(0,0)).x + enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.size.x/2;
         xMax = Camera.main.ViewportToWorldPoint(new Vector2(1,0)).x - enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.size.x/2;
         enemyRB.position = new Vector2(Mathf.Clamp(enemyRB.position.x, xMin, xMax), enemyRB.position.y);
-    } */
+    }
 }
