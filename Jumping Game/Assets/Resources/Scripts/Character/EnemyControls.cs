@@ -5,22 +5,18 @@ using Pathfinding;
 
 public class EnemyControls : MonoBehaviour
 {
-    [Header("Pathfinding")]
     private Transform target;
     private float activateDistance = 50f;
-    // private float pathUpdateSeconds = 0.1f;
-
-    [Header("Physics")]
+    private float pathUpdateSeconds = 0.1f;
     private float speed = 2.5f;
     private float nextWaypointDistance = 0.1f;
     private float jumpNodeHeightRequirement = 0.9f;
     private float jumpModifier = 11.5f;
     private float jumpCheckOffset = 0.1f;
-
-    [Header("Custom Behavior")]
     private bool followEnabled = true;
     private bool jumpEnabled = true;
     private bool directionLookEnabled = true;
+    private int currentTargetPlatform;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -28,24 +24,24 @@ public class EnemyControls : MonoBehaviour
     Seeker seeker;
     public static Rigidbody2D enemyRB;
 
-    public void Start()
+    /* public void Start()
     {
         seeker = GetComponent<Seeker>();
         enemyRB = GetComponent<Rigidbody2D>();
+        currentTargetPlatform = 0;
 
-        // InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
+        InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
-    /* private void FixedUpdate()
+    private void FixedUpdate()
     {
-        target = Level1.selectedCharacterCollider.gameObject.transform;
+        target = Level.listOfPlatforms[currentTargetPlatform];
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
         }
         cameraBorders();
-    } */
-
+    }
     private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
@@ -72,9 +68,13 @@ public class EnemyControls : MonoBehaviour
 
         if (jumpEnabled && isGrounded.collider != null)
         {
-            if (direction.y > jumpNodeHeightRequirement)
+            if (direction.y > jumpNodeHeightRequirement && direction.y < 0.9)
             {
-                enemyRB.velocity = new Vector2(enemyRB.velocity.x, direction.y * jumpModifier);
+                enemyRB.AddForce(Vector2.up * 30);
+            }
+            else if (direction.y > 0.9)
+            {
+                enemyRB.AddForce(Vector2.up * 25);
             }
         }
 
@@ -119,5 +119,5 @@ public class EnemyControls : MonoBehaviour
         xMin = Camera.main.ViewportToWorldPoint(new Vector2(0,0)).x + enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.size.x/2;
         xMax = Camera.main.ViewportToWorldPoint(new Vector2(1,0)).x - enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.size.x/2;
         enemyRB.position = new Vector2(Mathf.Clamp(enemyRB.position.x, xMin, xMax), enemyRB.position.y);
-    }
+    } */
 }

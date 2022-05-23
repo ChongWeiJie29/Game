@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour
     private BoxCollider2D characterCollider;
     private Animator playerAnim;
     private float playerSpeed = 5;
-    private float playerJump = 13.7f;
+    private float playerJump = 500;
     private bool jumping = false; //Max Jump is approx 1.8 squares
 
 
@@ -20,7 +20,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         characterRB = GetComponent<Rigidbody2D>();
-        characterRB.gravityScale = 3;
+        characterRB.gravityScale = 2;
         characterRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         characterRB.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         characterCollider = GetComponent<BoxCollider2D>();
@@ -59,7 +59,7 @@ public class PlayerControls : MonoBehaviour
 
         if(joystick.Vertical >= joystickUp && !jumping)
         {
-            characterRB.velocity = new Vector2(characterRB.velocity.x, joystick.Vertical*playerJump);
+            characterRB.AddForce(Vector2.up*playerJump);
             jumping = true;
         }
     }

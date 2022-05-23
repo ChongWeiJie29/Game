@@ -18,7 +18,6 @@ public class Level1 : Level
     // Update is called once per frame
     void Update()
     {
-        
         if (isFinished)
         {
             unlockNextLevel();

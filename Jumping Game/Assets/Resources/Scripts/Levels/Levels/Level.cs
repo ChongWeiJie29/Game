@@ -10,6 +10,7 @@ public class Level: MonoBehaviour
     protected GameObject enemyCharacter;
     public static bool isUnlocked;
     public static bool isFinished;
+    public static Transform[] listOfPlatforms;
     protected void loadItems()
     {
         // selectedCharacter = CharacterContainer.unlockedCharacters.ElementAt(CharacterContainer.selectedCharacter);
@@ -18,7 +19,7 @@ public class Level: MonoBehaviour
         selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacterCollider = selectedCharacter.GetComponent<BoxCollider2D>();
 
-        Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
+        // Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
 
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
@@ -28,5 +29,13 @@ public class Level: MonoBehaviour
         selectedCharacter = Resources.Load("Assets/Characters/Scientists/Scientist/Scientist") as GameObject;
         enemyCharacter = Resources.Load("Assets/Characters/Enemy") as GameObject;
         loadItems();
+        getListOfPlatforms();
+    }
+    void getListOfPlatforms()
+    {
+        listOfPlatforms = new Transform[GameObject.Find("Platforms").transform.childCount];
+        for (int i=0; i < GameObject.Find("Platforms").transform.childCount - 1; i++) {
+            listOfPlatforms[i] = GameObject.Find("Platforms").transform.GetChild(GameObject.Find("Platforms").transform.childCount - 2 - i);
+        }
     }
 }
