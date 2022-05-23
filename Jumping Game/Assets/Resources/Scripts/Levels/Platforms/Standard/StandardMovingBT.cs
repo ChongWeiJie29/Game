@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardMoving : StandardPlatform
+public class StandardMovingBT : StandardPlatform
 {
-    public static float defaultShiftRate = 1f;
+    [SerializeField]
+    private GameObject Button;
+    public static float defaultShiftRate = StandardMoving.defaultShiftRate;
     private float platformShiftRate = defaultShiftRate;
-    public static float xLimit = 1f;
+    private float xLimit = StandardMoving.xLimit;
 
     public override void Update()
     {
         base.Update();
-        shiftPlatform();
-        shiftCharacter();
+        buttonPressed();
+    }
+
+    void buttonPressed(){
+        if(Button.GetComponent<BoxCollider2D>().IsTouching(Level1.selectedCharacterCollider)){
+            shiftPlatform();
+            shiftCharacter();
+        }
     }
 
     void shiftPlatform()
