@@ -6,7 +6,7 @@ public class ThickSwingingCrumblySpiky : ThickCrumbly
 {
     private static float shiftRate = -StandardMoving.defaultShiftRate;
     private float platformShiftRate = 0.5f;
-    private float xLimit = StandardMoving.xLimit * 1.4f;
+    public float xLimit = StandardMoving.defaultXLimit * 1.4f;
 
     public override void Update()
     {

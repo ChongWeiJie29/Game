@@ -6,7 +6,7 @@ public class ThickMoving : ThickPlatform
 {
     private static float shiftRate = -StandardMoving.defaultShiftRate;
     private float platformShiftRate = shiftRate;
-    private float xLimit = StandardMoving.xLimit;
+    public float xLimit = StandardMoving.defaultXLimit;
 
     public override void Update()
     {

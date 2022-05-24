@@ -6,7 +6,7 @@ public class StandardMovingCrumbly : StandardCrumbly
 {
     private static float defaultShiftRate = StandardMoving.defaultShiftRate;
     private float platformShiftRate = defaultShiftRate;
-    private float xLimit = StandardMoving.xLimit;
+    public float xLimit = StandardMoving.defaultXLimit;
 
     public override void Update()
     {

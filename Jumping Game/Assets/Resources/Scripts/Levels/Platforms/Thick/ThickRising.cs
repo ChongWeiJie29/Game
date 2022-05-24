@@ -6,7 +6,7 @@ public class ThickRising : ThickPlatform
 {
     public static float defaultShiftRate = StandardRising.defaultShiftRate;
     private float platformShiftRate = defaultShiftRate;
-    private float yLimit = StandardRising.yLimit;
+    public float yLimit = StandardRising.defaultYLimit;
     private float initialYPosition;
 
     public override void Start()

@@ -6,7 +6,8 @@ public class StandardMoving : StandardPlatform
 {
     public static float defaultShiftRate = 1f;
     private float platformShiftRate = defaultShiftRate;
-    public static float xLimit = 1f;
+    public static float defaultXLimit = 1f;
+    public float xLimit = defaultXLimit;
 
     public override void Update()
     {

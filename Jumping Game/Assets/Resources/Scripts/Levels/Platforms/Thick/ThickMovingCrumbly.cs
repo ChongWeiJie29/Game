@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThickMovingCrumbly : ThickCrumbly
 {
     private float shiftRate = -StandardMoving.defaultShiftRate;
-    private float xLimit = StandardMoving.xLimit;
+    public float xLimit = StandardMoving.defaultXLimit;
 
     public override void Update()
     {

@@ -6,7 +6,8 @@ public class StandardRising : StandardPlatform
 {
     public static float defaultShiftRate = 1f;
     private float platformShiftRate = defaultShiftRate;
-    public static float yLimit = 1f;
+    public static float defaultYLimit = 1f;
+    public float yLimit = defaultYLimit;
     private float initialYPosition;
 
     public override void Start()
