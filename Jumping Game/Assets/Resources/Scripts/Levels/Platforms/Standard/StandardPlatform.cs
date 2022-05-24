@@ -8,10 +8,13 @@ public class StandardPlatform : MonoBehaviour
     public GameObject platform;
     private Vector2 characterPosition, enemyPosition;
     private float joystickUp, joystickDown;
+    public float xOriginal, yOriginal;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
+        xOriginal = platform.transform.position.x;
+        yOriginal = platform.transform.position.y;
         joystickUp = PlayerControls.joystickUp;
         joystickDown = PlayerControls.joystickDown;
     }

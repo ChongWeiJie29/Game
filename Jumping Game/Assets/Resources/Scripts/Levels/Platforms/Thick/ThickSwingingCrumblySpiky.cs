@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThickMoving : ThickPlatform
+public class ThickSwingingCrumblySpiky : ThickCrumbly
 {
     private static float shiftRate = -StandardMoving.defaultShiftRate;
-    private float platformShiftRate = shiftRate;
-    private float xLimit = StandardMoving.xLimit;
+    private float platformShiftRate = 0.5f;
+    private float xLimit = StandardMoving.xLimit * 1.4f;
 
     public override void Update()
     {
@@ -17,7 +17,9 @@ public class ThickMoving : ThickPlatform
 
     void shiftPlatform()
     {
-        platform.transform.position += new Vector3(platformShiftRate * Time.deltaTime, 0f, 0f);
+        float platformXPos = platform.transform.position.x + platformShiftRate * Time.deltaTime;
+        float platformYPos = -2.5f * Mathf.Cos(platform.transform.position.x - xOriginal) + 2.5f + yOriginal;
+        platform.transform.position = new Vector3(platformXPos, platformYPos, 0f);
         if(platform.transform.position.x >= (xOriginal + xLimit) || platform.transform.position.x <= (xOriginal - xLimit))
         {
             platformShiftRate *= -1;
@@ -42,6 +44,8 @@ public class ThickMoving : ThickPlatform
 
     void shiftCharacter()
     {
-        Level1.selectedCharacterCollider.gameObject.transform.position += new Vector3(platformShiftRate * Time.deltaTime, 0f, 0f);
+        float charXPos = Level1.selectedCharacterCollider.gameObject.transform.position.x + platformShiftRate * Time.deltaTime;
+        float charYPos = Level1.selectedCharacterCollider.gameObject.transform.position.y;
+        Level1.selectedCharacterCollider.gameObject.transform.position = new Vector3(charXPos, charYPos, 0f);
     }
 }
