@@ -7,11 +7,11 @@ public class EnemyControls : MonoBehaviour
 {
     private Transform target;
     private float activateDistance = 50f;
-    // private float pathUpdateSeconds = 0.1f;
+    private float pathUpdateSeconds = 0.1f;
     private float speed = 2.5f;
     private float nextWaypointDistance = 0.1f;
     private float jumpNodeHeightRequirement = 0.9f;
-    // private float jumpModifier = 11.5f;
+    private float jumpModifier = 8;
     private float jumpCheckOffset = 0.1f;
     private bool followEnabled = true;
     private bool jumpEnabled = true;
@@ -24,7 +24,7 @@ public class EnemyControls : MonoBehaviour
     Seeker seeker;
     public static Rigidbody2D enemyRB;
 
-    /* public void Start()
+    public void Start()
     {
         seeker = GetComponent<Seeker>();
         enemyRB = GetComponent<Rigidbody2D>();
@@ -41,12 +41,12 @@ public class EnemyControls : MonoBehaviour
             PathFollow();
         }
         cameraBorders();
-    } */
+    } 
     private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
         {
-            seeker.StartPath(enemyRB.position, target.position, OnPathComplete);
+            seeker.StartPath(enemyRB.position, target.position + new Vector3(0, .6f, 0), OnPathComplete);
         }
     }
 
@@ -58,6 +58,15 @@ public class EnemyControls : MonoBehaviour
         }
         if (currentWaypoint >= path.vectorPath.Count)
         {
+            if (Level.selectedCharacterCollider.gameObject.transform.position.y > enemyRB.gameObject.transform.position.y)
+            {
+                currentTargetPlatform++;
+            }
+            else if (Level.selectedCharacterCollider.gameObject.transform.position.y < enemyRB.gameObject.transform.position.y && currentTargetPlatform != 0)
+            {
+                currentTargetPlatform--;
+            }
+            path = null;
             return;
         }
 
@@ -68,13 +77,13 @@ public class EnemyControls : MonoBehaviour
 
         if (jumpEnabled && isGrounded.collider != null)
         {
-            if (direction.y > jumpNodeHeightRequirement && direction.y < 0.9)
+            if (direction.y > jumpNodeHeightRequirement && direction.y < 0.9f)
             {
-                enemyRB.AddForce(Vector2.up * 30);
+                enemyRB.velocity = new Vector2(enemyRB.velocity.x, direction.y * (jumpModifier+8));
             }
-            else if (direction.y > 0.9)
+            else if (direction.y > 0.9f)
             {
-                enemyRB.AddForce(Vector2.up * 25);
+                enemyRB.velocity = new Vector2(enemyRB.velocity.x, direction.y * jumpModifier);
             }
         }
 
