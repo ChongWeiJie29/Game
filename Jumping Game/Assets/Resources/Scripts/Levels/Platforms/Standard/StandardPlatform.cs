@@ -50,13 +50,18 @@ public class StandardPlatform : MonoBehaviour
             }
         }
 
-        if(platformTop >= EnemyControls.enemyRB.gameObject.transform.position.y - EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.extents.y)
+        if(platformTop >= EnemyControls.enemyRB.gameObject.transform.position.y - EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>().bounds.extents.y + 0.015f)
         {
             Physics2D.IgnoreCollision(EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>(), platform.GetComponent<BoxCollider2D>(), true);
         }
         else
         {
             Physics2D.IgnoreCollision(EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>(), platform.GetComponent<BoxCollider2D>(), false);    
+        }
+
+        if (Level.selectedCharacterCollider.gameObject.transform.position.y < EnemyControls.enemyRB.gameObject.transform.position.y)
+        {
+            Physics2D.IgnoreCollision(EnemyControls.enemyRB.gameObject.GetComponent<BoxCollider2D>(), platform.GetComponent<BoxCollider2D>(), true);
         }
     }
 }

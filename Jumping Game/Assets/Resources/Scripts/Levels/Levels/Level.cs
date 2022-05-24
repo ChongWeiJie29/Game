@@ -13,14 +13,12 @@ public class Level: MonoBehaviour
     public static Transform[] listOfPlatforms;
     protected void loadItems()
     {
+        Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
         // selectedCharacter = CharacterContainer.unlockedCharacters.ElementAt(CharacterContainer.selectedCharacter);
         selectedCharacter = Instantiate(selectedCharacter, new Vector3(0, -3, 0), Quaternion.identity);
         selectedCharacter.AddComponent<PlayerControls>();
         selectedCharacter.AddComponent<Rigidbody2D>();
         selectedCharacterCollider = selectedCharacter.GetComponent<BoxCollider2D>();
-
-        // Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
-
         pauseScreen = GameObject.Find("PauseScreen");
         pauseScreen.SetActive(false);
     }
