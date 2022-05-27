@@ -26,7 +26,7 @@ public class LoadLevels : MonoBehaviour
             newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Level-" + i);
             newButton.GetComponent<Button>().interactable = true;
             Debug.Log("Level-" + i + "-Unlocked");
-            newButton.GetComponent<Button>().onClick.AddListener(()=>SceneManager.LoadScene("Level1"));
+            newButton.GetComponent<Button>().onClick.AddListener(()=>SceneManager.LoadScene("Level" + i));
         }else{
             newButton.name = "Level-" + i + "-Locked";
             newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Locked\n\n" + "Level-" + i);
