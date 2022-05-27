@@ -36,6 +36,7 @@ public class EnemyControls : MonoBehaviour
     private void FixedUpdate()
     {
         target = Level.listOfPlatforms[currentTargetPlatform];
+        // target = Level.selectedCharacterCollider.gameObject.transform;
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
@@ -58,15 +59,14 @@ public class EnemyControls : MonoBehaviour
         }
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            if (Level.selectedCharacterCollider.gameObject.transform.position.y > enemyRB.gameObject.transform.position.y)
+            if (Level.selectedCharacterCollider.gameObject.transform.position.y > transform.position.y)
             {
                 currentTargetPlatform++;
             }
-            else if (Level.selectedCharacterCollider.gameObject.transform.position.y < enemyRB.gameObject.transform.position.y && currentTargetPlatform != 0)
+            else if (Level.selectedCharacterCollider.gameObject.transform.position.y < transform.position.y && currentTargetPlatform != 0) 
             {
                 currentTargetPlatform--;
             }
-            path = null;
             return;
         }
 

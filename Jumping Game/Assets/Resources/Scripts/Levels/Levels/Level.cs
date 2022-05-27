@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Level: MonoBehaviour
 {
-    protected GameObject selectedCharacter;
+    private GameObject selectedCharacter;
     protected GameObject pauseScreen;
     public static BoxCollider2D selectedCharacterCollider;
     protected GameObject enemyCharacter;
@@ -14,7 +15,7 @@ public class Level: MonoBehaviour
     protected void loadItems()
     {
         Instantiate(enemyCharacter, new Vector3(-2.3f, -3, 0), Quaternion.identity);
-        // selectedCharacter = CharacterContainer.unlockedCharacters.ElementAt(CharacterContainer.selectedCharacter);
+        selectedCharacter = CharacterContainer.unlockedCharacters.ElementAt(CharacterContainer.selectedCharacter);
         selectedCharacter = Instantiate(selectedCharacter, new Vector3(0, -3, 0), Quaternion.identity);
         selectedCharacter.AddComponent<PlayerControls>();
         selectedCharacter.AddComponent<Rigidbody2D>();
