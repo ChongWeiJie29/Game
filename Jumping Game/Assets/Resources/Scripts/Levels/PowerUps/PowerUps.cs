@@ -58,5 +58,6 @@ public class PowerUps : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = .5f;
         Pot.canvas.blocksRaycasts = true;
         Pot.successfulPowerUp = false;
+        Pot.canvas.alpha = 0.5f;
     }
 }

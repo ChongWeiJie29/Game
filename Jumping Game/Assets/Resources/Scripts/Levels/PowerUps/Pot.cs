@@ -76,6 +76,7 @@ public class Pot : MonoBehaviour, IDropHandler, IBeginDragHandler, IEndDragHandl
                 successfulPowerUp = true;
                 potAnim.SetFloat("fractionOfPotions", (float)0);
                 canvas.blocksRaycasts = false;
+                canvas.alpha = 0.2f;
                 //Code to execute power up
             }
             else
