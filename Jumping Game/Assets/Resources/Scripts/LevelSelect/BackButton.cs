@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class BackButton : MonoBehaviour
+public class LevelSelectBackButton : MonoBehaviour
 {
     [SerializeField]
     private Button backButton;
@@ -15,7 +15,7 @@ public class BackButton : MonoBehaviour
 
     void backToMenu()
     {
-            SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
         // function to go to main menu
     }
 }

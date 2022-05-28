@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterContainer : MonoBehaviour
 {
     public static RectTransform characterContainer;
     private float scrollValue;
+
     public static int selectedCharacter = 0;
     [SerializeField]
     private GameObject character1;
@@ -17,8 +20,16 @@ public class CharacterContainer : MonoBehaviour
     private GameObject character4;
     [SerializeField]
     private GameObject character5;
+    [SerializeField]
+    private GameObject characterPanel;
+    [SerializeField]
+    private GameObject characterInfoButton;
+
     public static List<GameObject> unlockedCharacters;
+    private GameObject charPanel;
+    private GameObject charInfoButton;
     private GameObject character;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,8 +84,16 @@ public class CharacterContainer : MonoBehaviour
         }
         foreach (var unlockedCharacter in unlockedCharacters)
         {
+            charPanel = Instantiate(characterPanel, transform.position, Quaternion.identity);
+            charPanel.transform.SetParent(characterContainer);
+            charPanel.name = unlockedCharacter.gameObject.name + "Character";
+
             character = Instantiate(unlockedCharacter, transform.position, Quaternion.identity);
-            character.transform.SetParent(CharacterContainer.characterContainer);
+            character.transform.SetParent(charPanel.transform);
+
+            charInfoButton = Instantiate(characterInfoButton, new Vector3(transform.position.x + 1.2f, transform.position.y - 1.2f, transform.position.z), Quaternion.identity);
+            charInfoButton.transform.SetParent(charPanel.transform);
+            charInfoButton.GetComponent<Button>().onClick.AddListener(()=>SceneManager.LoadScene(unlockedCharacter.gameObject.name + "Info"));
         }
     }
 

@@ -1308,6 +1308,8 @@ MonoBehaviour:
   character3: {fileID: 4807579249173893024, guid: 3a4f4eba867f76b45813889a817ee445, type: 3}
   character4: {fileID: 4807579249173893024, guid: 6bfb21117c57d4c43b5e03996ff27b3f, type: 3}
   character5: {fileID: 4807579249173893024, guid: 591eee36cf5b6384883cf2183c81f522, type: 3}
+  characterPanel: {fileID: 8857146820080801085, guid: 059f82a4a5d048f4d943cc3955f17bda, type: 3}
+  characterInfoButton: {fileID: 6046811043424958806, guid: 4af7d4a2c4307384e826942687f4625b, type: 3}
 --- !u!1 &1416065023
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/MainMenu.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Resources/Scenes/LevelSelect/Level Select (Vertical Snap Full).unity
+    path: Assets/Resources/Scenes/LevelSelect/Level Select.unity
     guid: 920925d14989cba47a310f73d2371bc0
   - enabled: 1
     path: Assets/Resources/Scenes/Store.unity
