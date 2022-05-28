@@ -26,8 +26,6 @@ public class CharacterContainer : MonoBehaviour
     private GameObject characterInfoButton;
 
     public static List<GameObject> unlockedCharacters;
-    private GameObject charPanel;
-    private GameObject charInfoButton;
     private GameObject character;
 
     // Start is called before the first frame update
@@ -84,16 +82,8 @@ public class CharacterContainer : MonoBehaviour
         }
         foreach (var unlockedCharacter in unlockedCharacters)
         {
-            charPanel = Instantiate(characterPanel, transform.position, Quaternion.identity);
-            charPanel.transform.SetParent(characterContainer);
-            charPanel.name = unlockedCharacter.gameObject.name + "Character";
-
             character = Instantiate(unlockedCharacter, transform.position, Quaternion.identity);
-            character.transform.SetParent(charPanel.transform);
-
-            charInfoButton = Instantiate(characterInfoButton, new Vector3(transform.position.x + 1.2f, transform.position.y - 1.2f, transform.position.z), Quaternion.identity);
-            charInfoButton.transform.SetParent(charPanel.transform);
-            charInfoButton.GetComponent<Button>().onClick.AddListener(()=>SceneManager.LoadScene(unlockedCharacter.gameObject.name + "Info"));
+            character.transform.SetParent(characterContainer);
         }
     }
 
