@@ -20,7 +20,7 @@ public class Character2
         } 
         else
         {
-            Character2.unlocked = true;
+            Character2.unlocked = false;
             return unlocked;
         }
     }
